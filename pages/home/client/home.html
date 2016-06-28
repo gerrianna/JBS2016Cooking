@@ -1,9 +1,26 @@
 <template name="home">
-  <h1>Chef's Assistant</h1>
-  Welcome... please register and log in!
-  {{#if currentUser}}
-     Congratulations!!
-  {{else}}
-     You better log in now!!!
-  {{/if}}
+	<div class = "recipes">
+		<h1>Chef's Assistant</h1>
+		<h2>Copyright</h2>
+		<h2> Welcome</h2>
+		  Welcome... please register and log in!
+		  <br>
+		  {{#if currentUser}}
+		     Congratulations!!
+		  {{else}}
+		     You better log in now!!!
+		  {{/if}}
+		<br>
+		<input type = "text" class = "js-search" placeholder="Enter what you would like to cook">
+		<button class="js-recipe">Get Recipe!</button>
+
+  		<ul>
+    		{{#each r in recipes}}
+	    		<li><a href="{{r.href}}">{{r.title}}</a>
+	      		<img src="{{r.thumbnail}}" width="100">
+	      		{{r.ingredients}}
+	    		</li>
+    		{{/each}}
+ 		</ul>
+	</div>
 </template>
