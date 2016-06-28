@@ -1,15 +1,17 @@
 <template name="home">
-	<div>
+	<div class = "recipes">
 		<h1>Chef's Assistant</h1>
 		<h2>Copyright</h2>
 		<h2> Welcome</h2>
 		  Welcome... please register and log in!
-		  Hi
+		  <br>
 		  {{#if currentUser}}
 		     Congratulations!!
 		  {{else}}
 		     You better log in now!!!
 		  {{/if}}
+		<br>
+		<input type = "text" class = "js-search" placeholder="Enter what you would like to cook">
 		<button class="js-recipe">Get Recipe!</button>
 
   		<ul>
