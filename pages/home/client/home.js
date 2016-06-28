@@ -1,5 +1,5 @@
 Template.home.onCreated(function() {
-  //this.state = new ReactiveDict();
+  this.state = new ReactiveDict();
   this.state.setDefault({
     recipes:[],
   });
