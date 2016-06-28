@@ -1,5 +1,5 @@
 Template.home.onCreated(function() {
-  //this.state = new ReactiveDict();
+  this.state = new ReactiveDict();
   this.state.setDefault({
     recipes:[],
   });
@@ -17,9 +17,10 @@ Template.home.helpers({
 
 Template.home.events({
   "click .js-recipe": function(event,instance){
+    const text = $(".js-search").val(); //this gets what the user typed in
     Meteor.call("test1",function(e,r){console.log(r)});
 
-    Meteor.apply("getRecipe",["onions","omelet"],{returnStubValue: true},
+    Meteor.apply("getRecipe",[text],{returnStubValue: true},
       function(error,result){
         console.dir(error);
         r = JSON.parse(result);
