@@ -1,5 +1,5 @@
 Template.home.onCreated(function() {
-  this.state = new ReactiveDict();
+  //this.state = new ReactiveDict();
   this.state.setDefault({
     recipes:[],
   });
@@ -27,3 +27,4 @@ Template.home.events({
         return instance.state.set("recipes",r.results);
       });
   },
+})
