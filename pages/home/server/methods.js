@@ -1,9 +1,9 @@
-/*Meteor.methods({
+Meteor.methods({
 	"getRecipe":
 	function(ingr,dish){
 
-		console.dir("ingr = " + ingr);
-    console.dir("dish = " + dish);
+		console.dir("ingr2 = " + ingr);
+    console.dir("dish2 = " + dish);
     const url = "http://www.recipepuppy.com/api/?i="+ingr+"&q="+dish+"&p=3";
       console.log(url);
       const z = Meteor.http.call("get",url);
@@ -15,7 +15,7 @@
 
     console.dir(z);
 
-    return z.content;
+    return z.content;*/
 
   },
-})*/
+})
