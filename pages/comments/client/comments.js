@@ -1,8 +1,8 @@
 Template.comments.helpers({
 	commentsdata: function(){
 		return Comments.find({},{sort:{createdAt:-1}, limit:30000});},
-	
-	
+
+
 })
 
 Template.comments.events({
