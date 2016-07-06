@@ -1,15 +1,14 @@
-/*Meteor.methods({
+Meteor.methods({
 	"getRecipe":
-	function(ingr,dish){
+	function(ingr,name){
 
-		console.dir("ingr = " + ingr);
-    console.dir("dish = " + dish);
-    const url = "http://www.recipepuppy.com/api/?i="+ingr+"&q="+dish+"&p=3";
-      console.log(url);
-      const z = Meteor.http.call("get",url);
+		console.dir(ingr);
+    const z = Meteor.http.call("get",
+      "http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3");
+      console.dir(z);
       return z.content;
 
-		/*console.dir("name =" + name);
+		console.dir("name =" + name);
     const z = Meteor.http.call("get",
       "http://www.recipepuppy.com/api/?q={{ingr}}");
 
@@ -18,4 +17,4 @@
     return z.content;
 
   },
-})*/
+})
