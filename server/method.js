@@ -1,4 +1,4 @@
-Meteor.methods({
+/*Meteor.methods({
 	"getRecipe":
 	function(ingr,name){
 
@@ -17,4 +17,4 @@ Meteor.methods({
     return z.content;
 
   },
-})
+})*/
