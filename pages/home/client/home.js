@@ -18,9 +18,12 @@ Template.home.helpers({
 Template.home.events({
   "click .js-recipe": function(event,instance){
     const text = $(".js-search").val(); //this gets what the user typed in
-    Meteor.call("test1",function(e,r){console.log(r)});
+    console.log("text = " + text);
+    //Meteor.call("test1",function(e,r){console.log(r)});
+   Meteor.call("getRecipe", "abc", text);
 
     Meteor.apply("getRecipe",[text],{returnStubValue: true},
+
       function(error,result){
         console.dir(error);
         r = JSON.parse(result);
