@@ -22,15 +22,32 @@ Template.home.events({
     console.log("ingr = " + ingr);
     console.log("dish = " + dish);
     //Meteor.call("test1",function(e,r){console.log(r)});
-   // Meteor.call("getRecipe",[text]);
+    // Meteor.call("getRecipe",[text]);
 
     Meteor.apply("getRecipe",[ingr,dish],{returnStubValue: true},
+        function(error,result){
+            console.dir(error);
+            r = JSON.parse(result);
+            console.dir(r);
+            return instance.state.set("recipes",r.results);
+        }
+    );},
 
-      function(error,result){
-        console.dir(error);
-        r = JSON.parse(result);
-        console.dir(r);
-        return instance.state.set("recipes",r.results);
-      });
-  },
+    "click .js-talk": function(event){
+      console.log("clicked it");
+      $(".js-talk").html("Listening...");
+      //https://shapeshed.com/html5-speech-recognition-api/
+      var recognition = new webkitSpeechRecognition();
+      recognition.onresult = function(event) {
+          console.dir(event);
+          $(".js-talk").html("Talk");
+          console.log(event.results[0][0].transcript);
+          console.log(event.results[0][0].confidence);
+          console.log("done");
+        };
+
+        recognition.start();
+        console.log("starting the recognizer")
+    },
+
 })
