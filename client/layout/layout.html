@@ -5,7 +5,8 @@
 			<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster"/>
 			<h1>Chef's Assistant</h1>
 		</div>
-		<ul class="nav nav-pills nav-stacked">
+		<br>
+		<ul class="nav nav-pills nav-stacked col-md-3">
   			<li role="presentation">
   				<a href="{{pathFor 'home'}}">Home</a>
   			</li>
@@ -34,7 +35,13 @@
  			 	{{> loginButtons}}
  			 </li>
 		</ul>
+
 	{{> yield}}
+	<ul class = "nav nav-pills nav-stacked col-md-2">
+		<li role ="presentation">
+			hi
+		</li>
+	</ul>
 
 	</div>
 </template>
