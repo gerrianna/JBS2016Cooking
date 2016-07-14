@@ -2,7 +2,11 @@ div#header{
 	background-image: url(https://www.rubios.com/sites/default/files/banners/Ingredients_Feature.jpg);
 }
 
-.nav{
+#leftNav{
 	margin-left: -2%;
 	background-color: #eeeeee;
+}
+
+#rightNav{
+
 }
