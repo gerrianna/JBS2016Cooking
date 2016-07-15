@@ -6,7 +6,7 @@
 			<h1>Chef's Assistant</h1>
 		</div>
 		<br>
-		<ul class="nav nav-pills nav-stacked col-md-3">
+		<ul class="nav nav-pills nav-stacked col-md-3" id = "leftNav">
   			<li role="presentation">
   				<a href="{{pathFor 'home'}}">Home</a>
   			</li>
@@ -37,9 +37,36 @@
 		</ul>
 
 	{{> yield}}
-	<ul class = "nav nav-pills nav-stacked col-md-2">
+	<ul class = "nav nav-pills nav-stacked col-md-2" id = "rightNav">
 		<li role ="presentation">
-			hi
+			<a href="/appetizers">Appetizers</a>
+		</li>
+		<li role ="presentation">
+			<a href="/soups">Soups</a>
+		</li>
+		<li role ="presentation">
+			<a href="/chicken">Chicken</a>
+		</li>
+		<li role ="presentation">
+			<a href="/beef">Beef</a>
+		</li>
+		<li role ="presentation">
+			<a href="/seafood">Seafood</a>
+		</li>
+		<li role ="presentation">
+			<a href="/vegetarian">Vegetarian</a>
+		</li>
+		<li role ="presentation">
+			<a href="/salads">Salads</a>
+		</li>
+		<li role ="presentation">
+			<a href="/pasta">Pasta</a>
+		</li>
+		<li role ="presentation">
+			<a href="/desert">Desert</a>
+		</li>
+		<li role ="presentation">
+			<a href="/beverages">Beverages</a>
 		</li>
 	</ul>
 
