@@ -8,8 +8,9 @@
 		     You better log in now!!!
 		  {{/if}}
 		<br>
+
 		<center>
-		<div id="carousel-example-generic" class="carousel slide col-md-6" data-ride="carousel" style = "width:600px; height: 400px">
+		<div id="carousel-example-generic" class="carousel slide col-md-9" data-ride="carousel" style = "width:600px">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
 		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -58,58 +59,56 @@
 		  </a>
 		</div>
 		</center>
+		
 
  		<br><br><br> <br><hr>
 
 				<br>
 		<center>
 			<br><br><br>
-		<input type = "ingr" class = "js-ingr" placeholder="Enter what ingredients you would like to use">
+		<!--<input type = "ingr" class = "js-ingr" placeholder="Enter what ingredients you would like to use">-->
 		<br>
 		<input type = "dish" class = "js-dish" placeholder="Enter what dish you would like to make">
-		<button class="js-recipe btn btn-lg btn-info">Get Recipe!</button> <button class="js-talk btn btn-lg btn-info">TALK!</button>
+		<button class="js-recipe btn btn-lg btn-info">
+			<a href = "/results">Get Recipe!</a>
+		</button>
+		<button class="js-talk btn btn-lg btn-info">
+			<a href = "/results">Talk</a>
+		</button>
 
 	  </center>
-  		<ul>
-    		{{#each r in recipes}}
-	    		<li><a href="{{r.href}}">{{r.title}}</a>
-	      		<img src="{{r.thumbnail}}" width="100">
-	      		{{r.ingredients}}
-	    		</li>
-    		{{/each}}
- 		</ul>
-
- 		<ul class = "nav nav-pills nav-stacked col-md-2" id = "rightNav">
-		<li role ="presentation">
-			<a href="/appetizers">Appetizers</a>
-		</li>
-		<li role ="presentation">
-			<a href="/soups">Soups</a>
-		</li>
-		<li role ="presentation">
-			<a href="/chicken">Chicken</a>
-		</li>
-		<li role ="presentation">
-			<a href="/beef">Beef</a>
-		</li>
-		<li role ="presentation">
-			<a href="/seafood">Seafood</a>
-		</li>
-		<li role ="presentation">
-			<a href="/vegetarian">Vegetarian</a>
-		</li>
-		<li role ="presentation">
-			<a href="/salads">Salads</a>
-		</li>
-		<li role ="presentation">
-			<a href="/pasta">Pasta</a>
-		</li>
-		<li role ="presentation">
-			<a href="/desert">Desert</a>
-		</li>
-		<li role ="presentation">
-			<a href="/beverages">Beverages</a>
-		</li>
-	</ul>
+ 		
 	</div>
+	<ul class = "nav nav-pills nav-stacked col-sm-2" id = "rightNav">
+			<li role ="presentation">
+				<a href="/appetizers">Appetizers</a>
+			</li>
+			<li role ="presentation">
+				<a href="/soups">Soups</a>
+			</li>
+			<li role ="presentation">
+				<a href="/chicken">Chicken</a>
+			</li>
+			<li role ="presentation">
+				<a href="/beef">Beef</a>
+			</li>
+			<li role ="presentation">
+				<a href="/seafood">Seafood</a>
+			</li>
+			<li role ="presentation">
+				<a href="/vegetarian">Vegetarian</a>
+			</li>
+			<li role ="presentation">
+				<a href="/salads">Salads</a>
+			</li>
+			<li role ="presentation">
+				<a href="/pasta">Pasta</a>
+			</li>
+			<li role ="presentation">
+				<a href="/desert">Desert</a>
+			</li>
+			<li role ="presentation">
+				<a href="/beverages">Beverages</a>
+			</li>
+		</ul>
 </template>
