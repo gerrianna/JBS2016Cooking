@@ -1,11 +1,12 @@
 <template name="layout">
-	
+
 	<div class="container">
 		<div class="row" id="header">
 			<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster"/>
 			<h1>Chef's Assistant</h1>
 		</div>
-		<ul class="nav nav-pills nav-stacked">
+		<br>
+		<ul class="nav nav-pills nav-stacked col-md-3" id = "leftNav">
   			<li role="presentation">
   				<a href="{{pathFor 'home'}}">Home</a>
   			</li>
@@ -13,28 +14,61 @@
   				<a href="/myProfile">My Profile</a>
   			</li>
  			 <li role="presentation">
- 			 	<a href="/comments">My Shopping List</a>
+ 			 	<a href="/myShopping">My Shopping List</a>
  			 </li>
  			 <li role="presentation">
- 			 	<a href="/testinghome">My Fridge Items</a>
+ 			 	<a href="/myFridge">My Fridge Items</a>
  			 </li>
 			<li role="presentation">
- 			 	<a href="/showRides">My Planned Meals</a>
+ 			 	<a href="/myPlanned">My Planned Meals</a>
  			 </li>
  			 <li role="presentation">
- 			 	<a href="/showRides">My Favorite Recipes</a>
+ 			 	<a href="/myFav">My Favorite Recipes</a>
  			 </li>
  			 <li role="presentation">
- 			 	<a href="/showRides">My Friend's Favorite Recipes</a>
+ 			 	<a href="/friendFav">My Friend's Favorite Recipes</a>
  			 </li>
  			 <li role="presentation">
- 			 	<a href="/About">About</a>
+ 			 	<a href="/about">About</a>
  			 </li>
  			 <li>
  			 	{{> loginButtons}}
  			 </li>
 		</ul>
+
 	{{> yield}}
+	<ul class = "nav nav-pills nav-stacked col-md-2" id = "rightNav">
+		<li role ="presentation">
+			<a href="/appetizers">Appetizers</a>
+		</li>
+		<li role ="presentation">
+			<a href="/soups">Soups</a>
+		</li>
+		<li role ="presentation">
+			<a href="/chicken">Chicken</a>
+		</li>
+		<li role ="presentation">
+			<a href="/beef">Beef</a>
+		</li>
+		<li role ="presentation">
+			<a href="/seafood">Seafood</a>
+		</li>
+		<li role ="presentation">
+			<a href="/vegetarian">Vegetarian</a>
+		</li>
+		<li role ="presentation">
+			<a href="/salads">Salads</a>
+		</li>
+		<li role ="presentation">
+			<a href="/pasta">Pasta</a>
+		</li>
+		<li role ="presentation">
+			<a href="/desert">Desert</a>
+		</li>
+		<li role ="presentation">
+			<a href="/beverages">Beverages</a>
+		</li>
+	</ul>
 
 	</div>
 </template>
