@@ -13,31 +13,17 @@
   			<li role="presentation">
   				<a href="/myProfile">My Profile</a>
   			</li>
- 			 <li role="presentation">
- 			 	<a href="/myShopping">My Shopping List</a>
- 			 </li>
- 			 <li role="presentation">
- 			 	<a href="/myFridge">My Fridge Items</a>
- 			 </li>
-			<li role="presentation">
- 			 	<a href="/myPlanned">My Planned Meals</a>
- 			 </li>
- 			 <li role="presentation">
- 			 	<a href="/myFav">My Favorite Recipes</a>
- 			 </li>
- 			 <li role="presentation">
- 			 	<a href="/friendFav">My Friend's Favorite Recipes</a>
- 			 </li>
- 			 <li role="presentation">
+ 			<li role="presentation">
+ 			 	<a href="/friendFav">Friends</a>
+ 			</li>
+ 			<li role="presentation">
  			 	<a href="/about">About</a>
- 			 </li>
- 			 <li>
- 			 	{{> loginButtons}}
- 			 </li>
+ 			</li>
+ 			<li role = "presentation" class = "login" id = "loginButton">
+				{{> loginButtons}}
+			</li>
+			<br>
 		</ul>
-
 	{{> yield}}
-
-
 	</div>
 </template>

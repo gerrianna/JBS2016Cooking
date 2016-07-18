@@ -4,8 +4,13 @@ div#header{
 }
 
 #leftNav{
-	margin-left: -2%;
+	margin-left: -1.5%;
 	background-color: #eeeeee;
+	border-bottom: 20;
+}
+
+#loginButton{
+	margin-left: 5%;
 }
 
 
