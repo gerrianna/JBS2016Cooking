@@ -1,5 +1,7 @@
 Template.home.events({
   "click .js-recipe": function(event,instance){
+
+
     //const ingr = $(".js-ingr").val(); //this gets what the user typed in
     const dish = $(".js-dish").val(); //this gets the dish the user want to make
    // console.log("ingr = " + ingr);
@@ -31,7 +33,7 @@ Template.home.events({
           //const dish2 = event.results[0][0].transcript;
           console.log(event.results[0][0].confidence);
           console.log("done");
-          
+
           Meteor.apply("getRecipe",[dish2],{returnStubValue: true},
             function(error,result){
               console.dir(error);
@@ -46,8 +48,8 @@ Template.home.events({
 
         recognition.start();
         console.log("starting the recognizer");
-      
-      
+
+
     },
 
 })
