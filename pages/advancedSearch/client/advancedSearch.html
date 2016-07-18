@@ -1,0 +1,32 @@
+<template name="advancedSearch">
+  <div class="search col-med-6">
+    <top> <center> Advanced Search </center></top>
+    <hr>
+    <form action="demo_form.asp" method="get">
+      <d>Ingredients:</d>
+      <input type = "ingr" class = "js-ingr" placeholder="Enter what ingredients you would like to use">
+      <br>
+      <input type="checkbox" name="healthy" value="healthy"> <d>Healthy</d> <br>
+      <input type="checkbox" name="allergies" value="allergies" checked> <d>Allergies</d><br>
+      <input type="checkbox" name="vegetarian" value="vegetarian" checked> <d>Vegetarian</d><br>
+      <input type="checkbox" name="lactose-free" value="lactose-free" checked> <d>Lactose-Free</d><br>
+      <input type="checkbox" name="gluten-free" value="gluten-free" checked><d> Gluten-Free</d><br>
+
+      <br>
+      <d>Spiciness:</d><br>
+      <input type="checkbox" name="spiciness" value="mild" checked>
+        <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
+        &nbsp;
+      <input type="checkbox" name="spiciness" value="med-hot" checked>
+        <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
+        <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
+      &nbsp;
+      <input type="checkbox" name="spiciness" value="extra-hot" checked>
+        <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
+        <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
+        <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</template>

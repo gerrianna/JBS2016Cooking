@@ -17,14 +17,12 @@ Template.home.helpers({
 
 Template.home.events({
   "click .js-recipe": function(event,instance){
-    const ingr = $(".js-ingr").val(); //this gets what the user typed in
     const dish = $(".js-dish").val(); //this gets the dish the user want to make
-    console.log("ingr = " + ingr);
     console.log("dish = " + dish);
     //Meteor.call("test1",function(e,r){console.log(r)});
     // Meteor.call("getRecipe",[text]);
 
-    Meteor.apply("getRecipe",[ingr,dish],{returnStubValue: true},
+    Meteor.apply("getRecipe",[dish],{returnStubValue: true},
         function(error,result){
             console.dir(error);
             r = JSON.parse(result);
