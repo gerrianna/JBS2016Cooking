@@ -1,8 +1,18 @@
 <template name="myShopping">
 	<div>
-	<h1>My Shopping List</h1>
-	<input id = "input" type = "dish" class = "js-shoppingItem" placeholder="Enter Shopping List Item">
-	<button class="js-addShoppingItem btn btn-lg btn-info">Add Item
-	</button>
-</div>
+		<h1>My Shopping List</h1>
+		<input id = "input" type = "dish" class = "js-shoppingItem" placeholder="Enter Shopping List Item">
+		<button class="js-addShoppingItem btn btn-lg btn-info">Add Item
+		</button>
+		<button class="js-talkShoppingItem btn btn-lg btn-info">Talk</button>
+	</div>
+	<div>
+		{{#each s in shopping}}
+			<li>
+				{{s.text}}
+				<span class="js-delete-shoppingItem glyphicon glyphicon-remove" aria-hidden="true">
+	    		</span>
+			</li>
+		{{/each}}
+	</div>
 </template>
