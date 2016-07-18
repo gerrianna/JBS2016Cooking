@@ -1,5 +1,6 @@
 div#header{
 	background-image: url(https://www.rubios.com/sites/default/files/banners/Ingredients_Feature.jpg);
+	height:190px;
 }
 
 #leftNav{
@@ -7,6 +8,4 @@ div#header{
 	background-color: #eeeeee;
 }
 
-#rightNav{
 
-}
