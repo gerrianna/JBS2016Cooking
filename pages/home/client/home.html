@@ -1,11 +1,10 @@
 <template name="home">
 	<div class = "recipes col-md-7">
-		  Welcome... please register and log in!
-		  <br>
+
 		  {{#if currentUser}}
-		     Congratulations!!
+		    <center>Welcome back!</center>
 		  {{else}}
-		     You better log in now!!!
+		     <center>Please log in if you would like to access your profile.</center>
 		  {{/if}}
 		<br>
 
@@ -45,7 +44,7 @@
 		        Chicken Tikka Masala
 		      </div>
 		    </div>
-		    ...
+
 		  </div>
 
 		  <!-- Controls -->
@@ -64,27 +63,31 @@
  		<br><br><br> <br><hr>
 
 				<br>
+
 		<center>
 			<br><br><br>
-
-
-		
-
 		<!--<input type = "ingr" class = "js-ingr" placeholder="Enter what ingredients you would like to use">-->
 		<br>
 		<input id = "input" type = "dish" class = "js-dish" placeholder="Enter what dish you would like to make">
-		<button class="js-recipe btn btn-lg btn-info">
-			<a href = "/results">Get Recipe!</a>
+		<a href="/results">
+			<button class="js-recipe btn btn-lg btn-info">
+				Get Recipe!
+			</button>
+		</a>
+		
+
+		<a href = "/results">
+			<button class="js-talk btn btn-lg btn-info">
+				TALK
 		</button>
-		<button class="js-talk btn btn-lg btn-info">
-			<a href = "/results">Talk</a>
-		</button>
+		</a>
 
 		<br>
 		<a href="/advancedSearch">Advanced Search</a>
 		<br>
 
 	  </center>
+
 
 	</div>
 	<ul class = "nav nav-pills nav-stacked col-sm-2" id = "rightNav">

@@ -6,7 +6,7 @@
       <input type = "ingr" class = "js-ingr" placeholder="Enter what ingredients you would like to use" id="box">
       <br>
       <d>Cuisine Type:</d>
-      <input type = "cuisine" class = "js-cuisine" placeholder="Enter what cuisine type you would like to cook" id="box">
+      <input type = "cuisine" class = "js-cuisine" placeholder="Enter what type of cuisine you would like to cook" id="box">
       <br>
       <input type="checkbox" name="healthy" value="healthy"> <d>Healthy</d> <br>
       <input type="checkbox" name="allergies" value="allergies" checked> <d>Allergies</d><br>
@@ -17,8 +17,8 @@
       <input type="checkbox" name="gluten-free" value="gluten-free" checked><d> Paleo Diet</d><br>
       <input type="checkbox" name="gluten-free" value="gluten-free" checked><d> Nut-free</d><br>
 
-      <br>
-      <d>Spiciness:</d><br>
+
+      <d>Spiciness:</d>
       <input type="checkbox" name="spiciness" value="mild" checked>
         <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
         &nbsp;
@@ -32,7 +32,13 @@
         <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
       <br>
       <input type="submit" value="Submit">
-        <center><button class="button" style="vertical-align:middle"><span>Get Recipes</span></button></center>
+        <center>
+          <a href="/results">
+            <button class="button"><span>
+              Get Recipes</span>
+            </button>
+          </a>
+        </center>
     </form>
   </div>
 </template>

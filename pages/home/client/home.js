@@ -52,4 +52,6 @@ Template.home.events({
 
     },
 
+    //"click .jsx"
+
 })
