@@ -11,11 +11,14 @@ Template.home.events({
 
     Meteor.apply("getRecipe",[dish],{returnStubValue: true},
         function(error,result){
+          if(error) {
             console.dir(error);
+          }
             r = JSON.parse(result);
             console.dir(r);
             //return instance.state.set("recipes",r.results);
-            return Session.set("recipes",r.results);
+            return Session.set("recipes",r);
+        
         }
     );},
 
