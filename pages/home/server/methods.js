@@ -17,5 +17,5 @@ Meteor.methods({
 
     return z.content;*/
 
-  },
+  }
 })
