@@ -14,9 +14,13 @@ Template.home.events({
           if(error) {
             console.dir(error);
           }
+          console.dir("r");
             r = JSON.parse(result);
-            console.dir(r);
+            
+           // console.dir(r);
             //return instance.state.set("recipes",r.results);
+            console.dir("result");
+            console.dir(result);
             return Session.set("recipes",r);
         
         }
@@ -43,7 +47,7 @@ Template.home.events({
               r = JSON.parse(result);
               console.dir(r);
               //return instance.state.set("recipes",r.results);
-              return Session.set("recipes",r.results);
+              return Session.set("recipes",r);
             }
           );
          // console.log("done");
