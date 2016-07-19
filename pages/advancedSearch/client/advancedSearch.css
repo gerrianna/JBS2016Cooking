@@ -14,6 +14,14 @@ d{
     width: 500px;
 }
 
+#box2{
+    border: 2px solid powderblue;
+    padding: 5px;
+    width: 60px;
+}
+
+
+
 
 .button {
   display: inline-block;
