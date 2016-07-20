@@ -1,7 +1,5 @@
 Template.home.events({
   "click .js-recipe": function(event,instance){
-
-
     //const ingr = $(".js-ingr").val(); //this gets what the user typed in
     const dish = $(".js-dish").val(); //this gets the dish the user want to make
    // console.log("ingr = " + ingr);
@@ -16,15 +14,16 @@ Template.home.events({
           }
           console.dir("r");
             r = JSON.parse(result);
-            
+
            // console.dir(r);
             //return instance.state.set("recipes",r.results);
             console.dir("result");
             console.dir(result);
             return Session.set("recipes",r);
-        
+
         }
-    );},
+    );
+  },
 
     "click .js-talk": function(event,instance){
       console.log("clicked it");

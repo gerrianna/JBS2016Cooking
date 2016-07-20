@@ -7,9 +7,10 @@
 	</center>
 	<ul>
     	{{#each r in recipes}}
-	    	<li><a href="{{r.href}}">{{r.title}}</a>
-	      		<img src="{{r.image}}" width="100">
-	   			{{r.ingredients}}
+	    	<li>
+					<a href="{{r.href}}">{{r.title}}</a>
+	      	<img src="{{r.image}}" width="100">
+	   			Likes: {{r.likes}}
 	   		</li>
     	{{/each}}
  	</ul>

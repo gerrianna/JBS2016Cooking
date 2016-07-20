@@ -1,23 +1,67 @@
 <template name="advancedSearch">
   <div class="col-md-6">
     <top> <center> Advanced Search </center></top>
-    <form action="demo_form.asp" method="get">
+  <!--  <form action="demo_form.asp" method="get">-->
+      <d>Recipe:</d>
+      <input type = "recipe" class = "js-recipe" placeholder="Enter what recipe you would like to search for" id="box">
       <d>Ingredients:</d>
       <input type = "ingr" class = "js-ingr" placeholder="Enter what ingredients you would like to use" id="box">
       <br>
       <d>Cuisine Type:</d>
       <input type = "cuisine" class = "js-cuisine" placeholder="Enter what type of cuisine you would like to cook" id="box">
       <br>
-      <input type="checkbox" name="healthy" value="healthy"> <d>Healthy</d> <br>
-      <input type="checkbox" name="allergies" value="allergies" checked> <d>Allergies</d><br>
+      <d>Meal Type:</d>
+        <select class="js-type">
+          <option>Please select a meal type</option>
+          <option>Appetizer</option>
+          <option>Main Course</option>
+          <option>Side Dish</option>
+          <option>Salad</option>
+          <option>Bread</option>
+          <option>Breakfast</option>
+          <option>Soup</option>
+          <option>Dessert</option>
+          <option>Beverage</option>
+          <option>Sauce</option>
+        </select>
+     <br>
+
+      <d>Allergies/Exclude Ingredients:</d>
+      <input type = "allergies" class = "js-allergies" placeholder="Enter what ingredients to exclude in search" id="box"><br>
+
+      <input id="healthybox" type="checkbox" name="healthycheckbox" value="healthy"> <d>Show Healthy Filters</d> <br>
+      {{#if checkHealthy}}
+      <div id="healthyOptions">
+        <!--style="display:none"-->
+        <d>Maximum Calories: </d><input type = "maxCal" class = "js-maxCal" id="box2"> <br>
+        <d>Maximum Grams of Carbs:</d> <input type = "maxCarb" class = "js-maxCarb" id="box2"> <br>
+        <d>Maximum Grams of Fat: </d><input type = "maxFat" class = "js-maxFat" id="box2"> <br>
+        <d>Maximum Grams of Protein: </d><input type = "maxProtein" class = "js-maxProtein" id="box2"> <br>
+      </div>
+      {{/if}}
+
+      <input id="dietbox" type="checkbox" name="dietcheckbox" value="diet"> <d>Show Diet Filters</d>
+      {{#if checkDiet}}
+      <div id="diets">
+      <input type="checkbox" name="diet" value="pescetarian"> <d>Pescetarian</d>   <br>
+      <input type="checkbox" name="diet" value="lacto vegetarian"> <d>Lacto Vegetarian </d> <br>
+      <input type="checkbox" name="diet" value="ovo vegetarian"><d> Ovo Vegetarian</d> <br>
+      <input type="checkbox" name="diet" value="vegan"> <d>Vegan </d><br>
+      <input type="checkbox" name="diet" value="vegetarian"> <d>Vegetarian </d> <br>
+    </div>
+      {{/if}}
+      <br>
+<!--
       <input type="checkbox" name="vegetarian" value="vegetarian" checked> <d>Vegetarian</d><br>
-      <input type="checkbox" name="lactose-free" value="lactose-free" checked> <d>Dairy-Free</d><br>
+      <input type="checkbox" name="dairy-free" value="dairy-free" checked> <d>Dairy-Free</d><br>
       <input type="checkbox" name="gluten-free" value="gluten-free" checked><d> Gluten-Free</d><br>
-      <input type="checkbox" name="vegetarian" value="vegetarian" checked> <d>Vegan</d><br>
-      <input type="checkbox" name="gluten-free" value="gluten-free" checked><d> Paleo Diet</d><br>
-      <input type="checkbox" name="gluten-free" value="gluten-free" checked><d> Nut-free</d><br>
+      <input type="checkbox" name="vegan" value="vegan" checked> <d>Vegan</d><br>
+      <input type="checkbox" name="paleoDiet" value="paleoDiet" checked><d> Paleo Diet</d><br>
+      <input type="checkbox" name="nut-free" value="nut-free" checked><d> Nut-free</d><br>
+-->
 
 
+<!--
       <d>Spiciness:</d>
       <input type="checkbox" name="spiciness" value="mild" checked>
         <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
@@ -31,14 +75,16 @@
         <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
         <img src="http://vignette1.wikia.nocookie.net/farmville2/images/9/91/Red_Pepper.png/revision/latest?cb=20121010115817" height="40" width="15">
       <br>
-      <input type="submit" value="Submit">
+-->
+
+    <!--  <input type="submit" value="Submit">-->
         <center>
           <a href="/results">
-            <button class="button"><span>
+            <button class="js-get button"><span>
               Get Recipes</span>
             </button>
           </a>
         </center>
-    </form>
+    <!--</form>-->
   </div>
 </template>
