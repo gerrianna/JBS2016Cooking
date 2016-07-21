@@ -6,12 +6,16 @@
 		</top>
 	</center>
 	<ul>
-    	{{#each r in recipes}}
-	    	<li><a href="{{r.href}}">{{r.title}}</a>
-	      		<img src="{{r.image}}" width="100">
-	   			{{r.ingredients}}
-	   		</li>
-    	{{/each}}
+		{{#each recipes}}
+			<li class="js-reclink"><img src={{image}} width="100"> <a href="{{href}}">{{title}}</a></li>
+		{{/each}}
  	</ul>
  </div>
+</template>
+<template name="instructions">
+	<center>
+		<top>
+			Instructions
+		</top>
+	</center>
 </template>

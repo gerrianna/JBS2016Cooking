@@ -16,7 +16,9 @@ Template.home.events({
           }
           console.dir("r");
             r = JSON.parse(result);
-            
+            for(var i=0; i<r.length; i++){
+              Rec.insert(r[i]);
+            }
            // console.dir(r);
             //return instance.state.set("recipes",r.results);
             console.dir("result");
@@ -24,7 +26,11 @@ Template.home.events({
             return Session.set("recipes",r);
         
         }
-    );},
+
+    );
+   
+
+  },
 
     "click .js-talk": function(event,instance){
       console.log("clicked it");
@@ -45,6 +51,9 @@ Template.home.events({
             function(error,result){
               console.dir(error);
               r = JSON.parse(result);
+              for(var i=0; i<r.length; i++){
+                Rec.insert(r[i]);
+              }
               console.dir(r);
               //return instance.state.set("recipes",r.results);
               return Session.set("recipes",r);
