@@ -6,13 +6,20 @@
 		</top>
 	</center>
 	<ul>
+		{{#if recipes}}
+			<center>Found <b>{{recipes.length}}</b> recipes that match your search criteria!</center>
     	{{#each r in recipes}}
 	    	<li>
+					<img src="{{r.image}}" width="100">
 					<a href="{{r.href}}">{{r.title}}</a>
-	      	<img src="{{r.image}}" width="100">
 	   			Likes: {{r.likes}}
 	   		</li>
+				<br>
     	{{/each}}
+		{{else}}
+			<center>No recipes match your search criteria.</center>
+		{{/if}}
+
  	</ul>
  </div>
 </template>

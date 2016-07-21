@@ -36,9 +36,90 @@ Meteor.methods({
   },
 
   "advancedGet":
-  function(recipe,cuisine,ingr,allergies,diet,maxCal,maxCarb,maxFat,maxProtein,mealType){
+  function(recipe,ingr,cuisine,mealType,allergies,maxCal,maxCarb,maxFat,maxProtein,minCal,minCarb,minFat,minProtein){
+    console.dir("hi");
     var apikey = Meteor.settings.spoonacular;
-    const url ="https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?cuisine="+cuisine+"&excludeIngredients="+allergies+"&fillIngredients=false&includeIngredients="+ingr+"&intolerances="+allergies+"&limitLicense=false&maxCalories="+maxCal+"&maxCarbs="+maxCarbs+"&maxFat="+maxFat+"&maxProtein="+maxProtein+"minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query="+recipe+"&ranking=1&type="+mealType;
+    //console.log('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=false&includeIngredients=onions%2C+lettuce%2C+tomato&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course');
+
+  /*  var i;
+    var diets = "";
+    for (i = 0; i <	diet.length; i++) {
+      diets+diet[i];
+    }
+    */
+  //  const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?cuisine="+encodeURIComponent(cuisine)+"&excludeIngredients="+encodeURIComponent(allergies)+"&fillIngredients=false&includeIngredients="+encodeURIComponent(ingr)+"&intolerances="+encodeURIComponent(allergies)+"&limitLicense=false&maxCalories="+maxCal+"&maxCarbs="+maxCarb+"&maxFat="+maxFat+"&maxProtein="+maxProtein+"&minCalories="+minCal+"&minCarbs="+minCarb+"&minFat="+minFat+""&minProtein="+minProtein+"&number=10&offset=0&query="+encodeURIComponent(recipe)+"&ranking=1&type="+encodeURIComponent(mealType);
+    var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?";
+   if(cuisine){
+     url += "cuisine=";
+     url += encodeURIComponent(cuisine);
+   }
+
+   if(allergies){
+     url +="&excludeIngredients=";
+     url += encodeURIComponent(allergies);
+   }
+
+   if(ingr){
+     url += "&fillIngredients=false&includeIngredients=";
+     url += encodeURIComponent(ingr);
+   }
+
+   if(allergies){
+     url += "&intolerances=";
+     url += encodeURIComponent(allergies);
+   }
+
+   if(maxCal){
+     url += "&limitLicense=false&maxCalories=";
+     url += maxCal;
+   }
+
+   if(maxCarb){
+     url += "&maxCarbs=";
+     url += maxCarb;
+   }
+
+   if(maxFat){
+     url += "&maxFat=";
+     url += maxFat;
+   }
+
+   if(maxProtein){
+     url += "&maxProtein=";
+     url += maxProtein;
+   }
+
+   if(minCal){
+     url += "&minCalories="
+     url += minCal;
+   }
+
+   if(minCarb){
+     url += "&minCarbs=";
+     url += minCarb;
+   }
+
+   if(minFat){
+     url += "&minFat=";
+     url += minFat;
+   }
+
+   if(minProtein){
+     url += "&minProtein=";
+     url += minProtein;
+   }
+
+   if(recipe){
+     url += "&number=10&offset=0&query=";
+     url += encodeURIComponent(recipe);
+   }
+
+   if(mealType){
+     url += "&ranking=1&type=";
+     url += encodeURIComponent(mealType);
+   }
+
+
 
     console.log(url);
     const y = HTTP.call("GET",
