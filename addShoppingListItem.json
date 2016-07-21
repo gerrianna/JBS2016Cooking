@@ -1,0 +1,62 @@
+{
+  "id": "aea83693-9263-435a-8e85-45c22bbba259",
+  "name": "Add shopping item",
+  "auto": true,
+  "contexts": [
+    "shoppingList"
+  ],
+  "templates": [
+    "Add @groceryItem:groceryItem to my shopping list."
+  ],
+  "userSays": [
+    {
+      "id": "35df293a-9ab1-4125-a6e4-7091c9662b63",
+      "data": [
+        {
+          "text": "Add "
+        },
+        {
+          "text": "strawberries",
+          "alias": "groceryItem",
+          "meta": "@groceryItem",
+          "userDefined": false
+        },
+        {
+          "text": " to my shopping list."
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "shoppingList",
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "dataType": "@groceryItem",
+          "name": "groceryItem",
+          "value": "$groceryItem"
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "cortanaCommand": {
+    "navigateOrService": "NAVIGATE",
+    "target": ""
+  },
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}

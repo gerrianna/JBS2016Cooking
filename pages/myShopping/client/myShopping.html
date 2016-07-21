@@ -7,12 +7,16 @@
 		<button class="js-talkShoppingItem btn btn-lg btn-info">Talk</button>
 	</div>
 	<div>
-		{{#each s in shopping}}
+		{{#each s in shoppingList}}
 			<li>
-				{{s.text}}
-				<span class="js-delete-shoppingItem glyphicon glyphicon-remove" aria-hidden="true">
-	    		</span>
+				{{>itemRow shoppingList = s}}
 			</li>
 		{{/each}}
 	</div>
+</template>
+
+<template name = "itemRow">
+	{{shoppingList.text}}
+		<span class="js-delete-shoppingItem glyphicon glyphicon-remove" aria-hidden="true">
+	    </span>
 </template>
