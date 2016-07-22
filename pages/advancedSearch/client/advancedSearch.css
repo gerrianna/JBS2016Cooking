@@ -8,6 +8,17 @@ d{
   font-family: "Tahoma, Geneva, sans-serif";
 }
 
+x{
+  font-size: 15px;
+  color:red
+}
+
+y{
+  font-size:15px;
+  font-family: Tahoma, Geneva, sans-serif
+
+}
+
 #box{
     border: 2px solid powderblue;
     padding: 5px;
@@ -21,12 +32,6 @@ d{
 
 }
 
-#box3{
-  border: 2px solid powderblue;
-  padding: 5px;
-  width: 60px;
-
-}
 
 #diets{
   padding: 20px;

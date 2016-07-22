@@ -55,6 +55,8 @@ Template.advancedSearch.events({
     console.log("min fat = " + minFat);
     const minProtein = $(".js-minProtein").val();//minProtein
     console.log("min protein = " + minProtein);
+    //const number = $(".js-number").val();
+  //  console.log("number = " + number);
 
     const diet = document.getElementsByName("diet");
 

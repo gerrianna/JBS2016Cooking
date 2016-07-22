@@ -120,7 +120,6 @@ Meteor.methods({
    }
 
 
-
     console.log(url);
     const y = HTTP.call("GET",
       url,

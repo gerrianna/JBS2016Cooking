@@ -2,6 +2,8 @@
   <div class="col-md-9">
     <top> <center> Advanced Search </center></top>
   <!--  <form action="demo_form.asp" method="get">-->
+      <center><y>Fields with a &nbsp; <x>*</x> &nbsp; are required. </y></center>
+
       <d>Recipe:</d><br>
       <input type = "recipe" class = "js-recipe" placeholder="Enter what recipe you would like to search for" id="box"><br>
       <d>Ingredients:</d><br>
@@ -10,7 +12,7 @@
       <d>Cuisine Type:</d><br>
       <input type = "cuisine" class = "js-cuisine" placeholder="Enter what type of cuisine you would like to cook" id="box">
       <br>
-      <d>Meal Type:</d>
+      <x>*</x> &nbsp; <d>Meal Type:</d>
         <select class="js-type">
           <option>Please select a meal type</option>
           <option>Appetizer</option>
@@ -26,7 +28,7 @@
         </select>
      <br>
 
-      <d>Allergies/Exclude Ingredients:</d>
+      <d>Allergies/Exclude Ingredients:</d><br>
       <input type = "allergies" class = "js-allergies" placeholder="Enter what ingredients to exclude in search" id="box"><br>
 
       <input id="healthybox" type="checkbox" name="healthycheckbox" value="healthy"> <d>Show Healthy Filters</d> <br>
@@ -35,10 +37,10 @@
         <!--style="display:none"-->
         <div class="row">
           <div class="col-md-6">
-            <d>Minimum Calories: </d><input type = "minCal" class = "js-minCal" id="box3"> <br>
-            <d>Minimum Grams of Carbs:</d> <input type = "minCarb" class = "js-minCarb" id="box3"> <br>
-            <d>Minimum Grams of Fat: </d><input type = "minFat" class = "js-minFat" id="box3"> <br>
-            <d>Minimum Grams of Protein: </d><input type = "minProtein" class = "js-minProtein" id="box3"> <br>
+            <d>Minimum Calories: </d><input type = "minCal" class = "js-minCal" id="box2"> <br>
+            <d>Minimum Grams of Carbs:</d> <input type = "minCarb" class = "js-minCarb" id="box2"> <br>
+            <d>Minimum Grams of Fat: </d><input type = "minFat" class = "js-minFat" id="box2"> <br>
+            <d>Minimum Grams of Protein: </d><input type = "minProtein" class = "js-minProtein" id="box2"> <br>
           </div>
 
         <div class="col-md-6">
@@ -64,6 +66,9 @@
     </div>
       {{/if}}
       <br>
+    <!--  <d>Number of Results to Display:</d>
+      <input type = "recipe" class = "js-number" id="box2"><br>-->
+
 <!--
       <input type="checkbox" name="vegetarian" value="vegetarian" checked> <d>Vegetarian</d><br>
       <input type="checkbox" name="dairy-free" value="dairy-free" checked> <d>Dairy-Free</d><br>
@@ -93,6 +98,7 @@
             </button>
           </a>
         </center>
+
     <!--</form>-->
   </div>
 </template>
