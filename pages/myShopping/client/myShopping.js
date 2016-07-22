@@ -46,22 +46,22 @@ Template.myShopping.events({
             
               console.dir(r);
               //console.dir(r.result.parameters.groceryItem);
-              var arr = [r.result.parameters.groceryItem, r.result.parameters.groceryItem1];
-              var a= r.result.parameters;
-              for(var key in arr){
-                console.log("key" + arr[key]);
-                var s = arr[key];
+              //var arr = [r.result.parameters.groceryItem, r.result.parameters.groceryItem1];
+              //var a= r.result.parameters;
+              //for(var key in arr){
+                //console.log("key" + arr[key]);
+                var s = r.result.parameters.groceryItem;
                 console.dir(s);
                 shopping_obj = {
                   text:s,
                   user:Meteor.userId()
                 }
                 Meteor.call("addShopping",shopping_obj);
-              }
+              //}
               /*for each (){
                 console.log("item");
               };*/
-              console.dir(a);
+              //console.dir(a);
               //return Session.set("recipes",r);
         
             }
