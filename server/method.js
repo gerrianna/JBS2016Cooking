@@ -156,5 +156,17 @@ Meteor.methods({
     console.log("item");
     console.dir(item);
     Shopping.insert(item);
-  }
+  },
+
+  "removeFavorites":function(recipe){
+    console.dir(recipe);
+    console.log("clicked the x");
+    Favorites.remove(recipe);
+  },
+  "addFavorites":function(recipe){
+    console.log("removed");
+    console.dir(recipe);
+    Favorites.insert(recipe);
+  },
+
 })

@@ -1,2 +1,10 @@
 <template name="myFav">
+  <top> <center> My Favorite Recipes </center> </top>
+  <div>
+		{{#each f in favoritesList}}
+			<li>
+				{{>itemRow favoritesList = f}}
+			</li>
+		{{/each}}
+	</div>
 </template>

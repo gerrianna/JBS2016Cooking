@@ -14,4 +14,13 @@ Template.results.helpers({
     return Session.get("recipes");
   },
 
-});
+})
+/*
+Template.advancedSearch.events({
+    "click .js-thumbs-up": function(event){
+
+
+    },
+
+    "click .js-star": function(event)
+*/
