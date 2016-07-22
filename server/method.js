@@ -121,7 +121,6 @@ Meteor.methods({
     console.dir(y);
     return y.content;
   },
-})
   "addShoppingTalk":function(shopping_obj,item){
     console.dir(item);
     console.log("clicked the button");
