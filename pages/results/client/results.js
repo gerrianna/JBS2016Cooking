@@ -51,9 +51,7 @@ Template.results.events({
     );
     
     Router.go('/instructions');
-
-    
-    
-    
   }
-})
+});
+
+
