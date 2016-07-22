@@ -3,6 +3,10 @@ Meteor.methods({
   function(){
     return Rec.remove({});
   },
+  "removeIns":
+  function(){
+    return Ins.remove({});
+  },
   "getRecipe":
   function(dish){
     //console.dir("ingr2 = " + ingr);

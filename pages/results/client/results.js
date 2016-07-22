@@ -6,6 +6,11 @@ Template.results.onCreated(function() {
   console.log("creating the template");
   //console.dir(this.state);
 });
+Template.instructions.helpers({
+  instruction: function(){
+    return Ins.find({});
+  } 
+});
 
 Template.results.helpers({
   recipes: function(){
@@ -13,11 +18,7 @@ Template.results.helpers({
     //return instance.state.get("recipes");
     //return Session.get("recipes");
     return Rec.find({});
-  },
-  instruction: function(){
-    return Ins.find({});
   }
-  
 
 });
 Template.results.events({
@@ -27,7 +28,7 @@ Template.results.events({
     var recId = this.id;
     var id = this._id;
     Session.set("selectedrecipe", id);
-
+    Meteor.call("removeIns");
     Meteor.apply("getInstructions",[recId],{returnStubValue: true},
         function(error,result){
           if(error) {
@@ -35,8 +36,13 @@ Template.results.events({
           }
           console.dir("x");
           x = JSON.parse(result);
+
           for(var i=0; i<x.length; i++){
             Ins.insert(x[i]);
+            //var hello = Session.get('selectedrecipe');
+            //Rec.update({_id:hello}, {$set:{
+              //steps: this.steps
+            //}});
           }
           return Ins.find({});
         
