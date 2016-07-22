@@ -35,6 +35,17 @@ Template.home.events({
           console.log(event.results[0][0].confidence);
           console.log("done");
 
+          Meteor.apply("getRecipeTalk",dish2,{returnStubValue:true},
+            function(error,result){
+              if(error){
+                console.dir(error);
+              }
+              console.dir("r");
+              r = JSON.parse(result);
+              console.dir(r);
+            }
+          );
+
           Meteor.apply("getRecipe",[dish2],{returnStubValue: true},
             function(error,result){
               console.dir(error);
