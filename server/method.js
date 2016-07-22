@@ -23,13 +23,13 @@ Meteor.methods({
      console.dir(z);
      return z.content;
   },
-  "addShopping":function(shopping_obj,item){
+  "addShoppingTalk":function(shopping_obj,item){
     console.dir(item);
     console.log("clicked the button");
     var apiKey = Meteor.settings.apiSpeechKey;
-    //const url = "https://api.api.ai/v1/query?v=20150910&query="+item+"&lang=en&contexts=shoppingList&sessionId="+Meteor.userId();
+    const url = "https://api.api.ai/v1/query?v=20150910&query="+item+"&lang=en&contexts=shoppingList&sessionId="+Meteor.userId();
     //const url = "https://api.api.ai/v1/intents/?v=20150910"
-    const url = "https://api.api.ai/v1/query?v=20150910";
+    //const url = "https://api.api.ai/v1/query?v=20150910";
     console.log(url);
     const z = HTTP.call("GET",
       url,
@@ -38,14 +38,25 @@ Meteor.methods({
           "Authorization": "Bearer" + apiKey,
           "Content-type": "application/json"
         }
-      });
-    console.dir(z);
-    Shopping.insert(shopping_obj);
-    return z;
+      },
+      /*function(error,result){
+        console.log("result");
+        console.dir(result);
+        return result.content;
+      }*/
+      );
+    //console.dir(z);
+    //Shopping.insert(shopping_obj);
+    return z.content;
   },
   "removeShopping":function(item){
     console.dir(item);
     console.log("clicked the x");
     Shopping.remove(item);
+  },
+  "addShopping":function(item){
+    console.log("item");
+    console.dir(item);
+    Shopping.insert(item);
   }
 })

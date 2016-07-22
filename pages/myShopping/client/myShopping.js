@@ -23,7 +23,7 @@ Template.myShopping.events({
       	$(".js-talkShoppingItem").html("Listening...");
       	//https://shapeshed.com/html5-speech-recognition-api/
       	var recognition = new webkitSpeechRecognition();
-     	recognition.onresult = function(event) {
+     	  recognition.onresult = function(event) {
           console.dir(event);
           $(".js-talkShoppingItem").html("Talk");
           const item = event.results[0][0].transcript;
@@ -36,12 +36,35 @@ Template.myShopping.events({
           	user:Meteor.userId()
           }
           console.dir(shopping_obj);
-          Meteor.call("addShopping",shopping_obj,item, {returnStubValue: true},
+          Meteor.call("addShoppingTalk",shopping_obj,item, {returnStubValue: true},
           	function(error,result){
-          		console.dir(error);
-          		r = JSON.parse(result);
-          		console.dir(r);
-          	}
+              if(error) {
+                console.dir(error);
+              }
+              console.dir("r");
+              r = JSON.parse(result);
+            
+              console.dir(r);
+              //console.dir(r.result.parameters.groceryItem);
+              var arr = [r.result.parameters.groceryItem, r.result.parameters.groceryItem1];
+              var a= r.result.parameters;
+              for(var key in arr){
+                console.log("key" + arr[key]);
+                var s = arr[key];
+                console.dir(s);
+                shopping_obj = {
+                  text:s,
+                  user:Meteor.userId()
+                }
+                Meteor.call("addShopping",shopping_obj);
+              }
+              /*for each (){
+                console.log("item");
+              };*/
+              console.dir(a);
+              //return Session.set("recipes",r);
+        
+            }
           );
         };
 

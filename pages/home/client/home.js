@@ -8,7 +8,6 @@ Template.home.events({
     console.log("dish = " + dish);
     //Meteor.call("test1",function(e,r){console.log(r)});
     // Meteor.call("getRecipe",[text]);
-
     Meteor.apply("getRecipe",[dish],{returnStubValue: true},
         function(error,result){
           if(error) {
@@ -22,16 +21,13 @@ Template.home.events({
             console.dir("result");
             console.dir(result);
             return Session.set("recipes",r);
-        
         }
     );},
-
     "click .js-talk": function(event,instance){
       console.log("clicked it");
       $(".js-talk").html("Listening...");
       //https://shapeshed.com/html5-speech-recognition-api/
       var recognition = new webkitSpeechRecognition();
-     // var dish2 = "";
       recognition.onresult = function(event) {
           console.dir(event);
           $(".js-talk").html("Talk");
@@ -52,13 +48,7 @@ Template.home.events({
           );
          // console.log("done");
         };
-
         recognition.start();
         console.log("starting the recognizer");
-
-
     },
-
-    //"click .jsx"
-
 })
