@@ -146,15 +146,20 @@ Meteor.methods({
     return z.content;
   },
   "getRecipeTalk":function(dish){
+    console.dir(dish);
+    console.log("clicked the button");
     var apiKey = Meteor.settings.apiSpeechKey;
-    const url = "https://api.api.ai/v1/query?v=20150910&query="+dish+"&lang=en&contexts=shoppingList&sessionId="+Meteor.userId();
-
+    const url = "https://api.api.ai/v1/query?v=20150910&query="+dish+"&lang=en&sessionId="+Meteor.userId();
+    console.log(url);
     const z = HTTP.call("GET",
       url,
-     {headers: {
-       "X-Mashape-Key": apikey,
-       "Accept": "application/json"
-      }}/*, function(error, result) {
+      {
+        headers: {
+          "Authorization": "Bearer" + apiKey,
+          "Content-type": "application/json"
+        }
+      },
+      /*, function(error, result) {
         if(!error) {
           console.log("successful");
           console.log("result");

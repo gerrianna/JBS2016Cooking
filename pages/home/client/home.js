@@ -29,13 +29,14 @@ Template.home.events({
       recognition.onresult = function(event) {
           console.dir(event);
           $(".js-talk").html("Talk");
-          const dish2 = event.results[0][0].transcript;
-          console.log(dish2);
+          const item = event.results[0][0].transcript;
+          console.log("item");
+          console.log(item);
           //const dish2 = event.results[0][0].transcript;
           console.log(event.results[0][0].confidence);
           console.log("done");
 
-          Meteor.apply("getRecipeTalk",dish2,{returnStubValue:true},
+          Meteor.call("getRecipeTalk",item,{returnStubValue:true},
             function(error,result){
               if(error){
                 console.dir(error);
@@ -43,7 +44,7 @@ Template.home.events({
               console.dir("r");
               r = JSON.parse(result);
               console.dir(r);
-              var s = r.result.parameters.groceryItem;
+              var s = r.result.parameters.ingredients;
               Meteor.apply("getRecipe",[s],{returnStubValue:true},
                 function(error,result){
                 console.dir(error);
@@ -54,17 +55,6 @@ Template.home.events({
               })
             }
           );
-
-          /*Meteor.apply("getRecipe",[dish2],{returnStubValue: true},
-            function(error,result){
-              console.dir(error);
-              r = JSON.parse(result);
-              console.dir(r);
-              //return instance.state.set("recipes",r.results);
-              return Session.set("recipes",r);
-            }
-          );*/
-         // console.log("done");
         };
         recognition.start();
         console.log("starting the recognizer");
