@@ -43,10 +43,19 @@ Template.home.events({
               console.dir("r");
               r = JSON.parse(result);
               console.dir(r);
+              var s = r.result.parameters.groceryItem;
+              Meteor.apply("getRecipe",[s],{returnStubValue:true},
+                function(error,result){
+                console.dir(error);
+                r = JSON.parse(result);
+                console.dir(r);
+                //return instance.state.set("recipes",r.results);
+                return Session.set("recipes",r);
+              })
             }
           );
 
-          Meteor.apply("getRecipe",[dish2],{returnStubValue: true},
+          /*Meteor.apply("getRecipe",[dish2],{returnStubValue: true},
             function(error,result){
               console.dir(error);
               r = JSON.parse(result);
@@ -54,7 +63,7 @@ Template.home.events({
               //return instance.state.set("recipes",r.results);
               return Session.set("recipes",r);
             }
-          );
+          );*/
          // console.log("done");
         };
         recognition.start();

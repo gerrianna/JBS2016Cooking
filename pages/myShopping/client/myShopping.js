@@ -20,56 +20,56 @@ Template.myShopping.events({
 	},
 	"click .js-talkShoppingItem": function(event){
 		console.log("clicked it");
-      	$(".js-talkShoppingItem").html("Listening...");
+    $(".js-talkShoppingItem").html("Listening...");
       	//https://shapeshed.com/html5-speech-recognition-api/
-      	var recognition = new webkitSpeechRecognition();
-     	  recognition.onresult = function(event) {
-          console.dir(event);
-          $(".js-talkShoppingItem").html("Talk");
-          const item = event.results[0][0].transcript;
-          console.log("item");
-          console.log(item);
-          console.log(event.results[0][0].confidence);
-          console.log("done");
-          var shopping_obj={
-          	text:item,
-          	user:Meteor.userId()
+    var recognition = new webkitSpeechRecognition();
+    recognition.onresult = function(event) {
+      console.dir(event);
+      $(".js-talkShoppingItem").html("Talk");
+      const item = event.results[0][0].transcript;
+      console.log("item");
+      console.log(item);
+      console.log(event.results[0][0].confidence);
+      console.log("done");
+      var shopping_obj={
+        text:item,
+        user:Meteor.userId()
+      }
+      console.dir(shopping_obj);
+      Meteor.call("addShoppingTalk",shopping_obj,item, {returnStubValue: true},
+        function(error,result){
+          if(error) {
+            console.dir(error);
           }
+          console.dir("r");
+          r = JSON.parse(result);
+          console.dir(r);
+                //console.dir(r.result.parameters.groceryItem);
+                //var arr = [r.result.parameters.groceryItem, r.result.parameters.groceryItem1];
+                //var a= r.result.parameters;
+                //for(var key in arr){
+                  //console.log("key" + arr[key]);
+          var s = r.result.parameters.groceryItem;
+          console.dir(s);
+          shopping_obj = {
+            text:s,
+            user:Meteor.userId()
+          }
+          console.log("shopping obj");
           console.dir(shopping_obj);
-          Meteor.call("addShoppingTalk",shopping_obj,item, {returnStubValue: true},
-          	function(error,result){
-              if(error) {
-                console.dir(error);
-              }
-              console.dir("r");
-              r = JSON.parse(result);
-            
-              console.dir(r);
-              //console.dir(r.result.parameters.groceryItem);
-              //var arr = [r.result.parameters.groceryItem, r.result.parameters.groceryItem1];
-              //var a= r.result.parameters;
-              //for(var key in arr){
-                //console.log("key" + arr[key]);
-                var s = r.result.parameters.groceryItem;
-                console.dir(s);
-                shopping_obj = {
-                  text:s,
-                  user:Meteor.userId()
-                }
-                Meteor.call("addShopping",shopping_obj);
-              //}
-              /*for each (){
-                console.log("item");
-              };*/
-              //console.dir(a);
-              //return Session.set("recipes",r);
-        
-            }
-          );
-        };
+          Meteor.call("addShopping",shopping_obj);
+          var t = r.result.fulfillment.speech;
 
-        recognition.start();
-        console.log("starting the recognizer");
+          var pierreWords = new SpeechSynthesisUtterance(t);
+          window.speechSynthesis.speak(pierreWords);
+        }
+      );
+      
+    };
+    recognition.start();
+    console.log("starting the recognizer");
+    
+
 	}
 })
 
