@@ -171,6 +171,7 @@ Meteor.methods({
      console.dir(z);
      return z.content;
   },
+  //--------------SHOPPING LIST-------------------------
   "removeShopping":function(item){
     console.dir(item);
     console.log("clicked the x");
@@ -180,5 +181,30 @@ Meteor.methods({
     console.log("item");
     console.dir(item);
     Shopping.insert(item);
-  }
+  },
+
+  //--------------FAVORITES LIST-------------------------
+  "removeFavorite":function(favorite){
+    console.dir(favorite);
+    console.log("clicked the x");
+    Favorites.remove(favorite);
+  },
+  "addFavorite":function(favorite){
+    console.log("favorite");
+    console.dir(favorite);
+    Favorites.insert(favorite);
+  },
+
+  //--------------FRIDGE LIST-------------------------
+  "removeFridge":function(fridgeItem){
+    console.dir(fridgeItem);
+    console.log("clicked the x");
+    Fridge.remove(fridgeItem);
+  },
+  "addFridge":function(fridgeItem){
+    console.log("recipe");
+    console.dir(fridgeItem);
+    Fridge.insert(fridgeItem);
+  },
+
 })

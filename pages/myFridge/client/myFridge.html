@@ -1,2 +1,18 @@
 <template name="myFridge">
+  <top><center>My Fridge Items</center></top>
+
+  <div>
+    {{#each f in fridgeList}}
+      <li>
+        {{>fridgeRow fridgeList = f}}
+      </li>
+    {{/each}}
+  </div>
+
+</template>
+
+<template name = "fridgeRow">
+	{{fridgeList.text}}
+		<span class="js-delete-fridgeItem glyphicon glyphicon-remove" aria-hidden="true">
+	    </span>
 </template>

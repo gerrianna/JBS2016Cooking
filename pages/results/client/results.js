@@ -13,5 +13,11 @@ Template.results.helpers({
     //return instance.state.get("recipes");
     return Session.get("recipes");
   },
-
+  /*
+  "click .js-addFavorite": function(event){
+		//var favorite = //link to recipe $(" .js-shoppingItem").val();
+		console.dir(favorite);
+		Meteor.call("addFavorite",favorite);
+	},
+*/
 });
