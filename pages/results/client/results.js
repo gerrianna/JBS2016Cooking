@@ -13,11 +13,30 @@ Template.results.helpers({
     //return instance.state.get("recipes");
     return Session.get("recipes");
   },
-  /*
+  correctUrl: function(){
+    var image = this.image;
+    console.log(this);
+    //console.log(image);
+    return image.startsWith("https://spoonacular.com/recipeImages/");
+  },
+
+});
+
+Template.results.events({
   "click .js-addFavorite": function(event){
-		//var favorite = //link to recipe $(" .js-shoppingItem").val();
-		console.dir(favorite);
-		Meteor.call("addFavorite",favorite);
+		/*console.log("adding to favorites list: ");
+    console.log(this);
+    console.log(this.recipe);
+    console.log(this.recipe.title);
+    console.log(this.recipe.image);
+    */
+  //  const recipe = this.recipe._id;
+    const favorite = this.recipe.title;
+    var shopping_obj={
+			text:favorite,
+      image:this.recipe.image,
+			user:Meteor.userId()
+		};
+		Meteor.call("addFavorite",shopping_obj);
 	},
-*/
 });

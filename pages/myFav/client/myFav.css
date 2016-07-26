@@ -1,4 +1,20 @@
-l{
+info{
   font-size: 15px;
   font-family:inherit;
+}
+
+name{
+  font-size:15px;
+  font-family: Verdana, Geneva, sans-serif ;
+}
+
+prompt{
+  font-size:20px;
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+items{
+  font-size:18px;
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
 }

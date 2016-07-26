@@ -1,5 +1,13 @@
 Template.myFav.helpers({
-	favoriteList:function(){return Favorites.find({user:Meteor.userId()})}
+	favoriteList:function(){return Favorites.find({user:Meteor.userId()})},
+
+	correctUrl: function(){
+  //  const string = "https://spoonacular.com/recipeImages/";
+    var image = this.image;
+    console.log(this);
+    //console.log(image);
+    return image.startsWith("https://spoonacular.com/recipeImages/");
+  },
 });
 
 
@@ -10,4 +18,5 @@ Template.myFav.events({
 		console.dir(favorite);
 		Meteor.call("removeFavorite",favorite);
 	},
+
 });

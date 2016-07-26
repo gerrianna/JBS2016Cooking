@@ -85,7 +85,11 @@ Template.advancedSearch.events({
     }
     console.log("diets = "+ diets);
 
-    Meteor.apply("advancedGet",[recipe,ingr,cuisine,mealType,allergies,maxCal,maxCarb,maxFat,maxProtein,minCal,minCarb,minFat,minProtein],{returnStubValue: true},
+    const number = $(".js-num").val();
+    console.log("num:")
+    console.log(number);
+
+    Meteor.apply("advancedGet",[recipe,ingr,cuisine,mealType,allergies,maxCal,maxCarb,maxFat,maxProtein,minCal,minCarb,minFat,minProtein,number],{returnStubValue: true},
         function(error,result){
           if(error) {
             console.dir(error);
@@ -119,6 +123,5 @@ Template.advancedSearch.events({
      var checked = instance.$('#dietbox').prop('checked');
      instance.state.set("diet",checked);
   },
-
 
 });
