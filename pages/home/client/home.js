@@ -45,14 +45,20 @@ Template.home.events({
               r = JSON.parse(result);
               console.dir(r);
               var s = r.result.parameters.ingredients;
-              Meteor.apply("getRecipe",[s],{returnStubValue:true},
-                function(error,result){
-                console.dir(error);
-                r = JSON.parse(result);
-                console.dir(r);
-                //return instance.state.set("recipes",r.results);
-                return Session.set("recipes",r);
-              })
+              if(r.result.parameters.page != undefined){
+                t = r.result.parameters.page;
+                Router.go('/'+t);
+              } else if(r.result.parameters.page == undefined){
+                Meteor.apply("getRecipe",[s],{returnStubValue:true},
+                  function(error,result){
+                  console.dir(error);
+                  r = JSON.parse(result);
+                  console.dir(r);
+                  //return instance.state.set("recipes",r.results);
+                  return Session.set("recipes",r);
+                })
+                Router.go('/results');
+              }              
             }
           );
         };
