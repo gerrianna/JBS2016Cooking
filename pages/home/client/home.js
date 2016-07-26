@@ -4,9 +4,13 @@ Template.home.events({
     const dish = $(".js-dish").val(); //this gets the dish the user want to make
    // console.log("ingr = " + ingr);
     console.log("dish = " + dish);
+    const number = $(".js-showNum").val();
+    console.log("num:")
+    console.log(number);
+    //const number = Session.get("number");
     //Meteor.call("test1",function(e,r){console.log(r)});
     // Meteor.call("getRecipe",[text]);
-    Meteor.apply("getRecipe",[dish],{returnStubValue: true},
+    Meteor.apply("getRecipe",[dish,number],{returnStubValue: true},
         function(error,result){
           if(error) {
             console.dir(error);
@@ -16,7 +20,9 @@ Template.home.events({
           r = JSON.parse(result);
           console.dir("r= ");
           console.dir(r);
-            return Session.set("recipes",r);
+          x = r.results;
+          console.dir(x);
+          return Session.set("recipes",x);
 
         }
     );},
@@ -34,8 +40,12 @@ Template.home.events({
           //const dish2 = event.results[0][0].transcript;
           console.log(event.results[0][0].confidence);
           console.log("done");
+          const number = $(".js-showNum").val();
+          console.log("num:")
+          console.log(number);
+          //const number = Session.get("number");
 
-          Meteor.apply("getRecipe",[dish2],{returnStubValue: true},
+          Meteor.apply("getRecipe",[dish2,number],{returnStubValue: true},
             function(error,result){
               console.dir(error);
               r = JSON.parse(result);
