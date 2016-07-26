@@ -1,3 +1,20 @@
+Template.home.onCreated(function() {
+  //this.state = new ReactiveDict();
+  Session.setDefault({
+    number:0,
+  });
+  console.log("creating the template");
+  //console.dir(this.state);
+});
+
+Template.home.helpers({
+  number: function(){
+    const instance = Template.instance();
+    //return instance.state.get("recipes");
+    return Session.get("number");
+  },
+});
+
 Template.home.events({
   "click .js-recipe": function(event,instance){
     //const ingr = $(".js-ingr").val(); //this gets what the user typed in
@@ -5,6 +22,7 @@ Template.home.events({
    // console.log("ingr = " + ingr);
     console.log("dish = " + dish);
     const number = $(".js-showNum").val();
+    Session.set("number",number);
     console.log("num:")
     console.log(number);
     //const number = Session.get("number");
@@ -41,6 +59,7 @@ Template.home.events({
           console.log(event.results[0][0].confidence);
           console.log("done");
           const number = $(".js-showNum").val();
+          Session.set("number",number);
           console.log("num:")
           console.log(number);
           //const number = Session.get("number");

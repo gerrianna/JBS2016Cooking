@@ -86,6 +86,7 @@ Template.advancedSearch.events({
     console.log("diets = "+ diets);
 
     const number = $(".js-num").val();
+    Session.set("number",number);
     console.log("num:")
     console.log(number);
 

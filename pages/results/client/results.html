@@ -1,9 +1,25 @@
 <template name = "results">
 	<div class = "col-md-9">
 		<center><top>	Results</top></center>
+	<!--	<center>Number of results to show:
+		<select class="js-show">
+		<option>{{number}}</option>
+		<option>10</option>
+		<option>20</option>
+		<option>30</option>
+		<option>40</option>
+		<option>50</option>
+		<option>60</option>
+		<option>70</option>
+		<option>80</option>
+		<option>90</option>
+		<option>100</option>
+	</select>
+</center>-->
 	<ul><hr>
 		{{#if recipes}}
 			<center>Found <b>{{recipes.length}}</b> recipes that match your search criteria!</center>
+
     	{{#each r in recipes}}
 	    	<li>
 					{{#with r}}

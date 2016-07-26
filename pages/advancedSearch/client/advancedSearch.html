@@ -2,8 +2,6 @@
   <div class="col-md-9">
     <top> <center> Advanced Search </center></top>
   <!--  <form action="demo_form.asp" method="get">-->
-      <center><y>Fields with a &nbsp; <x>*</x> &nbsp; are required. </y></center>
-
       <d>Recipe:</d><br>
       <input type = "recipe" class = "js-recipe" placeholder="Enter what recipe you would like to search for" id="box"><br>
       <d>Ingredients:</d><br>
@@ -12,9 +10,9 @@
       <d>Cuisine Type:</d><br>
       <input type = "cuisine" class = "js-cuisine" placeholder="Enter what type of cuisine you would like to cook" id="box">
       <br>
-      <x>*</x> &nbsp; <d>Meal Type:</d>
+      <d>Meal Type:</d>
         <select class="js-type">
-          <option>Please select a meal type</option>
+          <option></option>
           <option>Appetizer</option>
           <option>Main Course</option>
           <option>Side Dish</option>
@@ -69,6 +67,7 @@
 
       <d>Number of Results to Display:</d>
         <select class="js-num">
+        <option>{{number}}</option>
     		<option>10</option>
     		<option>20</option>
     		<option>30</option>
