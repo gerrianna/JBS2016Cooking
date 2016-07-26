@@ -1,2 +1,30 @@
 <template name="myFav">
+  <top> <center>My Favorite Recipes</center></top>
+  <info><center>Add more favorite recipes by clicking <span class ="glyphicon glyphicon-star-empty"></span> next to a recipe.</center></info>
+  <info><center>Remove a recipe from your favorites list by clicking <span class ="glyphicon glyphicon-remove"></span> next to a recipe below.</center></info>
+  <hr>
+
+  <div class ="col-md-9 bg-warning">
+  {{#each f in favoriteList}}
+    <li>
+      {{#with f}}
+        {{#if correctUrl}}
+          <img src="{{f.image}}" width = "75" height = "75">
+        {{else}}
+          <img src="https://spoonacular.com/recipeImages/{{f.image}}" width="75" height = "75">
+        {{/if}}
+        {{> favoriteRow  favoriteList = f}}
+      {{/with}}
+    </li>
+    <br>
+  {{/each}}
+</div>
+
+</template>
+
+<template name = "favoriteRow">
+  <name><a href="{{favoriteList.href}}">{{favoriteList.text}}</a></name>
+ <!--<img src="{{favoriteList.image}}" width = "75" height = "75">	{{favoriteList.text}}-->
+		<span class="js-delete-favorite glyphicon glyphicon-remove" aria-hidden="true">
+	    </span>
 </template>

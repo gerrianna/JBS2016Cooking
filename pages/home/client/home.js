@@ -4,9 +4,13 @@ Template.home.events({
     const dish = $(".js-dish").val(); //this gets the dish the user want to make
    // console.log("ingr = " + ingr);
     console.log("dish = " + dish);
+    const number = $(".js-showNum").val();
+    console.log("num:")
+    console.log(number);
+    //const number = Session.get("number");
     //Meteor.call("test1",function(e,r){console.log(r)});
     // Meteor.call("getRecipe",[text]);
-    Meteor.apply("getRecipe",[dish],{returnStubValue: true},
+    Meteor.apply("getRecipe",[dish,number],{returnStubValue: true},
         function(error,result){
           if(error) {
             console.dir(error);
@@ -16,13 +20,16 @@ Template.home.events({
           r = JSON.parse(result);
           console.dir("r= ");
           console.dir(r);
-            return Session.set("recipes",r);
+          x = r.results;
+          console.dir(x);
+          return Session.set("recipes",x);
 
         }
-    );},
+    );
+  },
 
-    "click .js-talk": function(event,instance){
-      console.log("clicked it");
+  "click .js-talk": function(event,instance){
+    console.log("clicked it");
       $(".js-talk").html("Listening...");
       //https://shapeshed.com/html5-speech-recognition-api/
       var recognition = new webkitSpeechRecognition();
@@ -35,6 +42,11 @@ Template.home.events({
           //const dish2 = event.results[0][0].transcript;
           console.log(event.results[0][0].confidence);
           console.log("done");
+          //const number = $(".js-showNum").val();
+          //console.log("num:")
+          //console.log(number);
+          const number = 10;
+          //const number = Session.get("number");
 
           Meteor.call("getRecipeTalk",item,{returnStubValue:true},
             function(error,result){
@@ -43,20 +55,28 @@ Template.home.events({
               }
               console.dir("r");
               r = JSON.parse(result);
-              console.dir(r);
+              //console.dir(r);
               var s = r.result.parameters.ingredients;
               if(r.result.parameters.page != undefined){
                 t = r.result.parameters.page;
                 Router.go('/'+t);
               } else if(r.result.parameters.page == undefined){
-                Meteor.apply("getRecipe",[s],{returnStubValue:true},
-                  function(error,result){
-                  console.dir(error);
+                console.dir("finding recipe");
+              Meteor.apply("getRecipe",[s,number],{returnStubValue: true},
+                function(error,result){
+                  if(error) {
+                    console.dir(error);
+                  }
+                  console.dir("result=");
+                  console.dir(result);
                   r = JSON.parse(result);
+                  console.dir("r= ");
                   console.dir(r);
-                  //return instance.state.set("recipes",r.results);
-                  return Session.set("recipes",r);
-                })
+                  x = r.results;
+                  console.dir(x);
+                  return Session.set("recipes",x);
+                }
+              );
                 Router.go('/results');
               }              
             }

@@ -85,7 +85,11 @@ Template.advancedSearch.events({
     }
     console.log("diets = "+ diets);
 
-    Meteor.apply("advancedGet",[recipe,ingr,cuisine,mealType,allergies,maxCal,maxCarb,maxFat,maxProtein,minCal,minCarb,minFat,minProtein],{returnStubValue: true},
+    const number = $(".js-num").val();
+    console.log("num:")
+    console.log(number);
+
+    Meteor.apply("advancedGet",[recipe,ingr,cuisine,mealType,allergies,maxCal,maxCarb,maxFat,maxProtein,minCal,minCarb,minFat,minProtein,number],{returnStubValue: true},
         function(error,result){
           if(error) {
             console.dir(error);
@@ -133,6 +137,8 @@ Template.advancedSearch.events({
           //const dish2 = event.results[0][0].transcript;
       console.log(event.results[0][0].confidence);
       console.log("done");
+      const number = 10;
+
 
       Meteor.call("getRecipeTalk",item,{returnStubValue:true},
         function(error,result){
@@ -141,21 +147,29 @@ Template.advancedSearch.events({
           }
           console.dir("r");
           r = JSON.parse(result);
-          console.dir(r);
+              //console.dir(r);
           var s = r.result.parameters.ingredients;
           if(r.result.parameters.page != undefined){
             t = r.result.parameters.page;
             Router.go('/'+t);
           } else if(r.result.parameters.page == undefined){
-          Meteor.apply("getRecipe",[s],{returnStubValue:true},
-            function(error,result){
-              console.dir(error);
-              r = JSON.parse(result);
-              console.dir(r);
-                  //return instance.state.set("recipes",r.results);
-              return Session.set("recipes",r);
-            })
-            Router.go('/results');
+              console.dir("finding recipe");
+              Meteor.apply("getRecipe",[s,number],{returnStubValue: true},
+                function(error,result){
+                  if(error) {
+                    console.dir(error);
+                  }
+                  console.dir("result=");
+                  console.dir(result);
+                  r = JSON.parse(result);
+                  console.dir("r= ");
+                  console.dir(r);
+                  x = r.results;
+                  console.dir(x);
+                  return Session.set("recipes",x);
+                }
+              );
+              Router.go('/results');
           }              
         }
       );
@@ -163,6 +177,5 @@ Template.advancedSearch.events({
     recognition.start();
     console.log("starting the recognizer");
   },
-
 
 });

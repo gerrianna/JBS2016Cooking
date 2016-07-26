@@ -1,2 +1,13 @@
 <template name="friendFav">
+  <top> <center>My Friends' Favorite Recipes </center></top>
+  <d><center>Here are recipes that your friends love!</center></d>
+
+  <div>
+    {{#each f in friendsList}}
+      <li>
+        {{f}}
+      </li>
+    {{/each}}
+  </div>
+
 </template>
