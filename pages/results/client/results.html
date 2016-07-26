@@ -6,12 +6,6 @@
 			<center>Found <b>{{recipes.length}}</b> recipes that match your search criteria!</center>
     	{{#each r in recipes}}
 	    	<li>
-					<img src="{{r.image}}" width="100">
-					<a href="{{r.href}}">{{r.title}}</a>
-	   			<e>Likes: {{r.likes}}</e>
-					<!--<a href="#">-->
-          <button  class="js-thumbs-up glyphicon glyphicon-thumbs-up"></button>
-					<button class =" js-star glyphicon glyphicon-star-empty"></button>
 					{{#with r}}
 						{{#if correctUrl}}
 							<img src="{{r.image}}" width = "100" height = "100">
