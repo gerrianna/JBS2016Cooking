@@ -1,22 +1,26 @@
 <template name="myShopping">
-	<div>
-		<h1>My Shopping List</h1>
+	<div class = "col-md-9">
+  	<top><center>My Shopping List</center></top>
+		<info><center>Add items needed for recipes to your grocery list as a reminder to buy them the next time you go grocery shopping.</center></info>
+		<hr>
+		<prompt>Add a grocery item to your shopping list:</prompt>
 		<input id = "input" type = "dish" class = "js-shoppingItem" placeholder="Enter Shopping List Item">
 		<button class="js-addShoppingItem btn btn-lg btn-info">Add Item
 		</button>
-		<button class="js-talkShoppingItem btn btn-lg btn-info">Talk</button>
-	</div>
-	<div>
+		<button class="js-talk btn btn-lg btn-info">Talk</button><br>
+
+	<div class = "bg-danger">
 		{{#each s in shoppingList}}
 			<li>
 				{{>itemRow shoppingList = s}}
 			</li>
 		{{/each}}
 	</div>
+</div>
 </template>
 
 <template name = "itemRow">
-	{{shoppingList.text}}
+	<items>{{shoppingList.text}}</items>
 		<span class="js-delete-shoppingItem glyphicon glyphicon-remove" aria-hidden="true">
 	    </span>
 </template>

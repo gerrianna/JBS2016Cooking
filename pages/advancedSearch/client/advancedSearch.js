@@ -85,7 +85,29 @@ Template.advancedSearch.events({
     }
     console.log("diets = "+ diets);
 
-    Meteor.apply("advancedGet",[recipe,ingr,cuisine,mealType,allergies,maxCal,maxCarb,maxFat,maxProtein,minCal,minCarb,minFat,minProtein],{returnStubValue: true},
+    const number = Session.get("number");
+    //const offset = Session.get("offset");
+
+    Session.set("search",{
+      recipe:recipe,
+      ingr:ingr,
+      cuisine:cuisine,
+      mealType:mealType,
+      allergies:allergies,
+      maxCal:maxCal,
+      maxCarb:maxCarb,
+      maxFat:maxFat,
+      maxProtein:maxProtein,
+      minCal:minCal,
+      minCarb:minCarb,
+      minFat:minFat,
+      minProtein:minProtein,
+      number:number,
+      //offset:0,
+    });
+    const search = Session.get("search");
+
+    Meteor.apply("advancedGet",[search],{returnStubValue: true},
         function(error,result){
           if(error) {
             console.dir(error);
@@ -122,6 +144,8 @@ Template.advancedSearch.events({
      var checked = instance.$('#dietbox').prop('checked');
      instance.state.set("diet",checked);
   },
-
+  "click .js-talk": function(event,instance){
+    Meteor.call('pierreSpeak');
+  },
 
 });

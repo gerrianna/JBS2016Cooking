@@ -5,7 +5,7 @@ div#header{
 
 #leftNav{
 	margin-left: -1.5%;
-	background-color: #eeeeee;
+	background-color: #AAD9B2;
 	border-bottom: 20;
 }
 
@@ -17,4 +17,8 @@ t{
 	font-family: cursive;
 	font-size: 130px;
 	color:#ff9900;
+}
+
+body {
+   background-image:url(http://www.lenaofis.com/website/images/background_gradient.jpg);
 }
