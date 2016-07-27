@@ -1,5 +1,9 @@
 Meteor.publish("theShoppingList", function(){
-	return Shopping.find();
+	if(this.userId){
+		return Shopping.find();
+	} else {
+		this.ready();
+	}
 })
 
 

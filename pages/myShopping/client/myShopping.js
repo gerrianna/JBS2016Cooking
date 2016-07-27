@@ -1,5 +1,5 @@
 Template.myShopping.helpers({
-	shoppingList:function(){return Shopping.find({user:Meteor.userId()})}
+	shoppingList:function(){return Shopping.find({user:Meteor.userId()}).fetch()}
 })
 
 Template.myShopping.events({
