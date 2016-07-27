@@ -236,5 +236,6 @@ Meteor.methods({
     console.dir(fridgeItem);
     Fridge.insert(fridgeItem);
   },
+  
 
 })
