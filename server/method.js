@@ -1,11 +1,15 @@
 Meteor.methods({
   "getRecipe":
-  function(dish,number){
+  function(search){
     console.dir("here");
   //  const dish = Session.get("dish");
     //const number = Session.get("number");
+    const dish = search.recipe;
     console.dir("dish2 = " + dish);
+    const number = search.number;
     console.dir("number = " + number);
+    //const offset = search.offset;
+    //console.dir("offset = " + offset);
     var apikey = Meteor.settings.spoonacular;
     const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number="+number+"&offset=0&query="+dish;
     //const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+dish+"&limitLicense=false&number=10&ranking=1";
@@ -28,7 +32,6 @@ Meteor.methods({
      console.dir(z);
      return z.content;
   },
-
   "advancedGet":
   function(search){
     console.dir("hi");
@@ -108,12 +111,13 @@ Meteor.methods({
      url += "&number=";
      url += search.number;
    }
-   if(search.offset){
+   /*if(search.offset){
      url += "&offset=";
      url += search.offset;
    }
+   */
    if(search.recipe){
-     url += "&query=";
+     url += "&offset=0&query=";
      url += encodeURIComponent(search.recipe);
    }
 
@@ -121,9 +125,6 @@ Meteor.methods({
      url += "&ranking=1&type=";
      url += encodeURIComponent(search.mealType);
    }
-
-
-
 
     console.log(url);
     const y = HTTP.call("GET",

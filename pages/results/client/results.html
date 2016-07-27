@@ -19,11 +19,11 @@
 	<ul><hr>
 		{{#if recipes}}
 
-		<center>Found <b>{{recipes.length}}</b> recipes that match your search criteria!</center>
-	<div>
-		<div class="col-md-4" id="left"><a href class="js-next">&lt;&lt;Show previous 10</a></div>
-		<div id="right"><a href class="js-prev">Show next 10 &gt;&gt;</a></div>
-	</div>
+		<center>Showing <b>{{recipes.length}}</b> recipes that match your search criteria!</center>
+	<!--<div>
+		<div class="col-md-4" id="left"><a href class="js-prev">&lt;&lt;Show previous 10</a></div>
+		<div id="right"><a href class="js-next">Show next 10 &gt;&gt;</a></div>
+	</div>-->
 	<br>
     	{{#each r in recipes}}
 	    	<li>
@@ -44,14 +44,20 @@
 	   		</li>
 				<br>
     	{{/each}}
+			<center>
+				<more>
+				<a href class="js-showMore">Show 10 more</a>
+			</more>
+			</center>
 		{{else}}
 			<center>No recipes match your search criteria.</center>
 		{{/if}}
-		
+		<!--
 		<div>
-			<div class="col-md-4" id="left"><a href class="js-next">&lt;&lt;Show previous 10</a></div>
-			<div id="right"><a href class="js-prev">Show next 10 &gt;&gt;</a></div>
+			<div class="col-md-4" id="left"><a href class="js-prev">&lt;&lt;Show previous 10</a></div>
+			<div id="right"><a href class="js-next">Show next 10 &gt;&gt;</a></div>
 		</div>
+	-->
 
  	</ul>
  </div>

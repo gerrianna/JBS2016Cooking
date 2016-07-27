@@ -35,3 +35,8 @@ name{
 .custom:active{
   color:yellow;
 }
+
+more{
+	font-size:18px;
+	font-family:sans-serif;
+}

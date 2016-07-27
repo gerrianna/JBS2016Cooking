@@ -55,7 +55,8 @@ Template.results.events({
           return Session.set("recipes",x);
 
         }
-    );},
+    );
+  },
 
   "click .js-addFavorite": function(event){
     const favorite = this.recipe.title;
@@ -66,4 +67,57 @@ Template.results.events({
 		};
 		Meteor.call("addFavorite",shopping_obj);
 	},
+  "click .js-showMore": function(event){
+    const currentNum = Session.get("number");
+    console.dir("currenNum: "+currentNum);
+    const moreNum = currentNum + 10;
+    console.dir("newNum: "+moreNum);
+    Session.set("number",moreNum);
+    const number = Session.get("number");
+    console.dir("numSession: "+number);
+    const search = Session.get("search");
+    Session.set("search",{
+      recipe:search.recipe,
+      ingr:search.ingr,
+      cuisine:search.cuisine,
+      mealType:search.mealType,
+      allergies:search.allergies,
+      maxCal:search.maxCal,
+      maxCarb:search.maxCarb,
+      maxFat:search.maxFat,
+      maxProtein:search.maxProtein,
+      minCal:search.minCal,
+      minCarb:search.minCarb,
+      minFat:search.minFat,
+      minProtein:search.minProtein,
+      number:moreNum,
+      //offset:0,
+    });
+    const updatedSearch = Session.get("search");
+    console.log("searchNum: "+updatedSearch.number);
+    console.dir("search_obj:"+updatedSearch);
+    console.dir("search_recipe: "+updatedSearch.recipe);
+    Meteor.apply("getRecipe",[updatedSearch],{returnStubValue: true},
+        function(error,result){
+          if(error) {
+            console.dir(error);
+          }
+          console.dir("result=");
+          console.dir(result);
+          r = JSON.parse(result);
+          console.dir("r= ");
+          console.dir(r);
+          x = r.results;
+          console.dir(x);
+          return Session.set("recipes",x);
+
+        }
+    );
+  }
+/*
+  "click .js-next": function(event){
+    const skip =
+    Session.set("offset",)
+  },
+  */
 });

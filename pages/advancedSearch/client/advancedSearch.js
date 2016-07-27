@@ -85,8 +85,8 @@ Template.advancedSearch.events({
     }
     console.log("diets = "+ diets);
 
-    const number = $(".js-num").val();
-    const offset = 10;
+    const number = Session.get("number");
+    //const offset = Session.get("offset");
 
     Session.set("search",{
       recipe:recipe,
@@ -103,7 +103,7 @@ Template.advancedSearch.events({
       minFat:minFat,
       minProtein:minProtein,
       number:number,
-      offset:offset,
+      //offset:0,
     });
     const search = Session.get("search");
 
