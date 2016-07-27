@@ -14,3 +14,11 @@ Meteor.publish("theFridgeList", function(){
 Meteor.publish("theFriendsList", function(){
 	return Friends.find();
 })
+
+Meteor.publish("theIns",function(){
+	return Ins.find();
+})
+
+Meteor.publish("theHealth", function(){
+	return Health.find();
+})

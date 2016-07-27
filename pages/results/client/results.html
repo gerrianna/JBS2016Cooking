@@ -9,6 +9,7 @@
 			</button>
 		</center>
 	<ul>
+		<button class = "js-newSearch btn btn-lg btn-info">New Search</button>
 		{{#if recipes}}
 			<center>Found <b>{{recipes.length}}</b> recipes that match your search criteria!</center>
     	{{#each r in recipes}}
@@ -19,7 +20,7 @@
 						{{else}}
 							<img src="https://spoonacular.com/recipeImages/{{r.image}}" width="100" height = "100">
 						{{/if}}
-						<a href="{{r.href}}">{{r.title}}</a>
+						<a class = "js-reclink" href="{{r.href}}">{{r.title}}</a>
 		   			<e>Likes: {{r.likes}}</e>
 						{{> interactRow  recipe=r}}
 					{{/with}}
@@ -29,12 +30,46 @@
 		{{else}}
 			<center>No recipes match your search criteria.</center>
 		{{/if}}
-
+		<button class = "js-newSearch btn btn-lg btn-info">New Search</button>
  	</ul>
  </div>
 </template>
 
 <template name="interactRow">
-		 <button  class="glyphicon glyphicon-thumbs-up"></button>
-		 <button class ="js-addFavorite glyphicon glyphicon-star-empty"></button>
+	 <button  class="glyphicon glyphicon-thumbs-up"></button>
+	 <button class ="js-addFavorite glyphicon glyphicon-star-empty"></button>
+</template>
+<template name="instructions">
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+			<center>
+				<top>
+					{{headername}}
+				</top>
+			</center>
+			{{#each recipeInfo}}
+				Prep Minutes : {{preparationMinutes}}
+			{{/each}}
+			<p>Ingredients</p>
+			<ol>
+				<p><span id="ingredients"></span></p>
+				{{#each ingredient}}
+				{{/each}}	
+			</ol>
+			<p>Equipment</p>
+			<ol>
+				<p><span id="eq"></span></p>
+				{{#each equipment}}
+				{{/each}}	
+			</ol>
+			<p>Instructions:</p>
+			<ol>
+				{{#each instruction}}
+					<br><li>{{step}}</li>
+				{{/each}}
+			</ol>
+		</div>
+	</div>
 </template>
