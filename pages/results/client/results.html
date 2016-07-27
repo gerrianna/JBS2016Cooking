@@ -8,10 +8,31 @@
 				Talk
 			</button>
 		</center>
-	<ul>
-		<button class = "js-newSearch btn btn-lg btn-info">New Search</button>
+	<!--	<center>Number of results to show:
+		<select class="js-show">
+		<option>{{number}}</option>
+		<option>10</option>
+		<option>20</option>
+		<option>30</option>
+		<option>40</option>
+		<option>50</option>
+		<option>60</option>
+		<option>70</option>
+		<option>80</option>
+		<option>90</option>
+		<option>100</option>
+	</select>
+</center>-->
+	<ul><hr>
+			<button class="js-newsearch btn btn-lg btn-info">New Search</button>
 		{{#if recipes}}
-			<center>Found <b>{{recipes.length}}</b> recipes that match your search criteria!</center>
+
+		<center>Showing <b>{{recipes.length}}</b> recipes that match your search criteria!</center>
+	<!--<div>
+		<div class="col-md-4" id="left"><a href class="js-prev">&lt;&lt;Show previous 10</a></div>
+		<div id="right"><a href class="js-next">Show next 10 &gt;&gt;</a></div>
+	</div>-->
+	<br>
     	{{#each r in recipes}}
 	    	<li>
 					{{#with r}}
@@ -20,25 +41,44 @@
 						{{else}}
 							<img src="https://spoonacular.com/recipeImages/{{r.image}}" width="100" height = "100">
 						{{/if}}
-						<a class = "js-reclink" href="{{r.href}}">{{r.title}}</a>
+						<a href="{{r.href}}" class="js-reclink"><name>{{r.title}}</name></a>
+						<br>
 		   			<e>Likes: {{r.likes}}</e>
+						<!--<a href="#">--> 
 						{{> interactRow  recipe=r}}
 					{{/with}}
+
+        <!--</a>-->
 	   		</li>
 				<br>
     	{{/each}}
+			<center>
+				<more>
+				<a href class="js-showMore">
+					Show 10 more &nbsp;<span class = "glyphicon glyphicon-plus-sign"></span>
+				</a>
+			</more>
+			</center>
 		{{else}}
 			<center>No recipes match your search criteria.</center>
 		{{/if}}
-		<button class = "js-newSearch btn btn-lg btn-info">New Search</button>
+		<!--
+		<div>
+			<div class="col-md-4" id="left"><a href class="js-prev">&lt;&lt;Show previous 10</a></div>
+			<div id="right"><a href class="js-next">Show next 10 &gt;&gt;</a></div>
+		</div>
+	-->
+	<button class="js-newsearch btn btn-lg btn-info">New Search</button>
  	</ul>
  </div>
 </template>
 
 <template name="interactRow">
-	 <button  class="glyphicon glyphicon-thumbs-up"></button>
-	 <button class ="js-addFavorite glyphicon glyphicon-star-empty"></button>
+	<!--	 <button  class="glyphicon glyphicon-thumbs-up"></button>-->
+	<span class="js-addFavorite glyphicon glyphicon-star-empty custom"></span>
+		<!-- <button class ="js-addFavorite glyphicon glyphicon-star-empty custom"></button>-->
 </template>
+
 <template name="instructions">
 	<div class="row">
 		<div class="col-md-2">
@@ -56,12 +96,14 @@
 			<ol>
 				<p><span id="ingredients"></span></p>
 				{{#each ingredient}}
+
 				{{/each}}	
 			</ol>
 			<p>Equipment</p>
 			<ol>
 				<p><span id="eq"></span></p>
 				{{#each equipment}}
+
 				{{/each}}	
 			</ol>
 			<p>Instructions:</p>

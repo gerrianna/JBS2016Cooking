@@ -1,7 +1,15 @@
 Meteor.methods({
   "getRecipe":
-  function(dish,number){
+  function(search){
+    console.dir("here");
+  //  const dish = Session.get("dish");
+    //const number = Session.get("number");
+    const dish = search.recipe;
     console.dir("dish2 = " + dish);
+    const number = search.number;
+    console.dir("number = " + number);
+    //const offset = search.offset;
+    //console.dir("offset = " + offset);
     var apikey = Meteor.settings.spoonacular;
     const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number="+number+"&offset=0&query="+dish;
     //const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+dish+"&limitLicense=false&number=10&ranking=1";
@@ -24,9 +32,8 @@ Meteor.methods({
      console.dir(z);
      return z.content;
   },
-
   "advancedGet":
-  function(recipe,ingr,cuisine,mealType,allergies,maxCal,maxCarb,maxFat,maxProtein,minCal,minCarb,minFat,minProtein,number){
+  function(search){
     console.dir("hi");
     var apikey = Meteor.settings.spoonacular;
     //console.log('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=false&includeIngredients=onions%2C+lettuce%2C+tomato&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course');
@@ -39,83 +46,85 @@ Meteor.methods({
     */
   //  const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?cuisine="+encodeURIComponent(cuisine)+"&excludeIngredients="+encodeURIComponent(allergies)+"&fillIngredients=false&includeIngredients="+encodeURIComponent(ingr)+"&intolerances="+encodeURIComponent(allergies)+"&limitLicense=false&maxCalories="+maxCal+"&maxCarbs="+maxCarb+"&maxFat="+maxFat+"&maxProtein="+maxProtein+"&minCalories="+minCal+"&minCarbs="+minCarb+"&minFat="+minFat+""&minProtein="+minProtein+"&number=10&offset=0&query="+encodeURIComponent(recipe)+"&ranking=1&type="+encodeURIComponent(mealType);
     var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?";
-   if(cuisine){
+    console.log(search.cuisine);
+   if(search.cuisine){
      url += "cuisine=";
-     url += encodeURIComponent(cuisine);
+     url += encodeURIComponent(search.cuisine);
    }
 
-   if(allergies){
+   if(search.allergies){
      url +="&excludeIngredients=";
-     url += encodeURIComponent(allergies);
+     url += encodeURIComponent(search.allergies);
    }
 
-   if(ingr){
+   if(search.ingr){
      url += "&fillIngredients=false&includeIngredients=";
-     url += encodeURIComponent(ingr);
+     url += encodeURIComponent(search.ingr);
    }
 
-   if(allergies){
+   if(search.allergies){
      url += "&intolerances=";
-     url += encodeURIComponent(allergies);
+     url += encodeURIComponent(search.allergies);
    }
 
-   if(maxCal){
+   if(search.maxCal){
      url += "&limitLicense=false&maxCalories=";
-     url += maxCal;
+     url += search.maxCal;
    }
 
-   if(maxCarb){
+   if(search.maxCarb){
      url += "&maxCarbs=";
-     url += maxCarb;
+     url += search.maxCarb;
    }
 
-   if(maxFat){
+   if(search.maxFat){
      url += "&maxFat=";
-     url += maxFat;
+     url += search.maxFat;
    }
 
-   if(maxProtein){
+   if(search.maxProtein){
      url += "&maxProtein=";
-     url += maxProtein;
+     url += search.maxProtein;
    }
 
-   if(minCal){
+   if(search.minCal){
      url += "&minCalories="
-     url += minCal;
+     url += search.minCal;
    }
 
-   if(minCarb){
+   if(search.minCarb){
      url += "&minCarbs=";
-     url += minCarb;
+     url += search.minCarb;
    }
 
-   if(minFat){
+   if(search.minFat){
      url += "&minFat=";
-     url += minFat;
+     url += search.minFat;
    }
 
-   if(minProtein){
+   if(search.minProtein){
      url += "&minProtein=";
-     url += minProtein;
+     url += search.minProtein;
    }
 
-   if(number){
+   if(search.number){
      url += "&number=";
-     url += number;
+     url += search.number;
    }
-
-   if(recipe){
+   /*if(search.offset){
+     url += "&offset=";
+     url += search.offset;
+   }
+   */
+   if(search.recipe){
      url += "&offset=0&query=";
-     url += encodeURIComponent(recipe);
+     url += encodeURIComponent(search.recipe);
    }
 
-   if(mealType){
+   if(search.mealType){
      url += "&ranking=1&type=";
-     url += encodeURIComponent(mealType);
+     url += encodeURIComponent(search.mealType);
    }
-
-
-
 
     console.log(url);
     const y = HTTP.call("GET",

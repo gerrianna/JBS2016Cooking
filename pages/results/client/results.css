@@ -1,7 +1,42 @@
 e{
 	font-size:15px;
-	color:#35DC51;
+	color:#00b300;
 	font-family: Verdana, Geneva, sans-serif
+}
+name{
+	font-size:18px;
+	color:#004d99;
+	font-family: Verdana, Geneva, sans-serif
+}
+
+#left{
+
+	margin-left: -2.5%;
+	text-align:left;
+	color:#cc6600;
+	font-size:15px;
+	font-family: Verdana, Geneva, sans-serif;
 
 
+}
+
+#right{
+
+	text-align:right;
+	color:#cc6600;
+	font-size:15px;
+	font-family: Verdana, Geneva, sans-serif
+}
+
+.custom{
+	font-size:20px;
+}
+
+.custom:active{
+  color:yellow;
+}
+
+more{
+	font-size:18px;
+	font-family:sans-serif;
 }
