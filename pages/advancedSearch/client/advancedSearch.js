@@ -86,11 +86,28 @@ Template.advancedSearch.events({
     console.log("diets = "+ diets);
 
     const number = $(".js-num").val();
-    Session.set("number",number);
-    console.log("num:")
-    console.log(number);
+    const offset = 10;
 
-    Meteor.apply("advancedGet",[recipe,ingr,cuisine,mealType,allergies,maxCal,maxCarb,maxFat,maxProtein,minCal,minCarb,minFat,minProtein,number],{returnStubValue: true},
+    Session.set("search",{
+      recipe:recipe,
+      ingr:ingr,
+      cuisine:cuisine,
+      mealType:mealType,
+      allergies:allergies,
+      maxCal:maxCal,
+      maxCarb:maxCarb,
+      maxFat:maxFat,
+      maxProtein:maxProtein,
+      minCal:minCal,
+      minCarb:minCarb,
+      minFat:minFat,
+      minProtein:minProtein,
+      number:number,
+      offset:offset,
+    });
+    const search = Session.get("search");
+
+    Meteor.apply("advancedGet",[search],{returnStubValue: true},
         function(error,result){
           if(error) {
             console.dir(error);

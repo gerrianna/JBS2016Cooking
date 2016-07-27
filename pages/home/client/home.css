@@ -1,6 +1,58 @@
 #rightNav{
-	background-color: #eeeeee;
+	background-color: #AAD9B2;
 }
 #input{
 	width: 400px;
+}
+
+.button2 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  width: 180px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 15px;
+}
+
+.button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button2 span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button2:hover span {
+  padding-right: 25px;
+}
+
+.button2:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.textbox {
+  background: white;
+  border: 1px solid #ffa853;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 3px #ffa853;
+  color: #666;
+  outline: none;
+  height:23px;
+  width: 275px;
+	margin:15px;
 }

@@ -1,8 +1,8 @@
 Template.results.onCreated(function() {
   //this.state = new ReactiveDict();
-  Session.setDefault({
-    recipes:[],
-  });
+  Session.setDefault(
+    "recipes",[]
+  );
   console.log("creating the template");
   //console.dir(this.state);
 });
@@ -28,7 +28,7 @@ Template.results.helpers({
 });
 
 Template.results.events({
-  /*"click .js-show": function(event,instance){
+  "click .js-show": function(event,instance){
     //const ingr = $(".js-ingr").val(); //this gets what the user typed in
     const dish = $(".js-dish").val(); //this gets the dish the user want to make
    // console.log("ingr = " + ingr);
@@ -56,15 +56,8 @@ Template.results.events({
 
         }
     );},
-*/
+
   "click .js-addFavorite": function(event){
-		/*console.log("adding to favorites list: ");
-    console.log(this);
-    console.log(this.recipe);
-    console.log(this.recipe.title);
-    console.log(this.recipe.image);
-    */
-  //  const recipe = this.recipe._id;
     const favorite = this.recipe.title;
     var shopping_obj={
 			text:favorite,

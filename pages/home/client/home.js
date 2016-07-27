@@ -1,12 +1,12 @@
 Template.home.onCreated(function() {
   //this.state = new ReactiveDict();
-  Session.setDefault({
-    number:0,
+  /*Session.setDefault({
+    number:10,
   });
+  */
   console.log("creating the template");
   //console.dir(this.state);
 });
-
 Template.home.helpers({
   number: function(){
     const instance = Template.instance();
@@ -18,11 +18,16 @@ Template.home.helpers({
 Template.home.events({
   "click .js-recipe": function(event,instance){
     //const ingr = $(".js-ingr").val(); //this gets what the user typed in
+
     const dish = $(".js-dish").val(); //this gets the dish the user want to make
+    Session.set("dish",dish);
+    const want = Session.get("dish");
+    console.log(want);
    // console.log("ingr = " + ingr);
     console.log("dish = " + dish);
-    const number = $(".js-showNum").val();
-    Session.set("number",number);
+    //const number = $(".js-showNum").val();
+
+    const number = Session.get("number");
     console.log("num:")
     console.log(number);
     //const number = Session.get("number");
