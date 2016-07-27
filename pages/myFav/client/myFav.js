@@ -1,3 +1,8 @@
+
+Template.myFav.helpers({
+	favoritesList:function(){return Favorites.find({user:Meteor.userId()})}
+})
+
 Template.myFav.helpers({
 	favoriteList:function(){return Favorites.find({user:Meteor.userId()})},
 

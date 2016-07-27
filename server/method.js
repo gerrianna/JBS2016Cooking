@@ -138,30 +138,6 @@ Meteor.methods({
     console.dir(y);
     return y.content;
   },
-  "getRecipeTalk":function(dish){
-    var apikey = Meteor.settings.spoonacular;
-    var apiKeySpeech = Meteor.settings.apiSpeechKey;
-    const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+dish+"&limitLicense=false&number=10&ranking=1";
-    const speechUrl = "https://api.api.ai/v1/query?v=20150910&query="+dish+"&lang=en&contexts=shoppingList&sessionId="+Meteor.userId();
-
-    const z = HTTP.call("GET",
-      url,
-     {headers: {
-       "X-Mashape-Key": apikey,
-       "Accept": "application/json"
-      }}/*, function(error, result) {
-        if(!error) {
-          console.log("successful");
-          console.log("result");
-          console.dir(result.content);
-          console.dir("end");
-          return result.content;
-        }
-      } */
-      );
-     console.dir(z);
-     return z.content;
-  },
   //--------------SHOPPING LIST-------------------------
   "addShoppingTalk":function(shopping_obj,item){
     console.dir(item);
@@ -185,11 +161,36 @@ Meteor.methods({
         return result.content;
       }*/
       );
-    //console.dir(z);
-    //Shopping.insert(shopping_obj);
     return z.content;
   },
-
+  "getRecipeTalk":function(dish){
+    console.dir(dish);
+    console.log("clicked the button");
+    var apiKey = Meteor.settings.apiSpeechKey;
+    const url = "https://api.api.ai/v1/query?v=20150910&query="+dish+"&lang=en&sessionId="+Meteor.userId();
+    console.log(url);
+    const z = HTTP.call("GET",
+      url,
+      {
+        headers: {
+          "Authorization": "Bearer" + apiKey,
+          "Content-type": "application/json"
+        }
+      },
+      /*, function(error, result) {
+        if(!error) {
+          console.log("successful");
+          console.log("result");
+          console.dir(result.content);
+          console.dir("end");
+          return result.content;
+        }
+      } */
+      );
+    console.dir("z");
+    console.dir(z);
+    return z.content;
+  },
   "removeShopping":function(item){
     console.dir(item);
     console.log("clicked the x");
