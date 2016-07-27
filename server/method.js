@@ -7,6 +7,10 @@ Meteor.methods({
   function(){
     return Ins.remove({});
   },
+  "removeHello":
+  function(){
+    return Hello.remove({})
+  },
   "getRecipe":
   function(dish){
     //console.dir("ingr2 = " + ingr);
@@ -55,6 +59,19 @@ Meteor.methods({
       );
     console.dir(z);
     return z.content;
-
+  },
+  "getRecipeIngredients":
+  function(recId){
+    var apikey = Meteor.settings.spoonacular;
+    const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+recId+"/information?includeNutrition=true";
+    const z = HTTP.call("GET", 
+      url,
+      {headers: {
+        "X-Mashape-Key": apikey,
+        "Accept": "application/json"
+      }}
+      );
+    console.dir(z);
+    return z.content;
   }
 })

@@ -10,17 +10,43 @@
 			<li class="js-reclink"><img src={{image}} width="100"> <a href="{{href}}">{{title}}</a></li>
 		{{/each}}
  	</ul>
+ 	<button class="js-newsearch">New Search</button>
  </div>
 </template>
+
+
+
 <template name="instructions">
-	<center>
-		<top>
-			Instructions
-		</top>
-	</center>
-	<ol>
-		{{#each instruction}}
-			{{steps}}
-		{{/each}}
-	</ol>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+			<center>
+				<top>
+					{{headername}}
+				</top>
+			</center>
+			{{#each recipeInfo}}
+				Prep Minutes : {{preparationMinutes}}
+			{{/each}}
+			<p>Ingredients</p>
+			<ol>
+				<p><span id="ingredients"></span></p>
+				{{#each ingredient}}
+				{{/each}}	
+			</ol>
+			<p>Equipment</p>
+			<ol>
+				<p><span id="eq"></span></p>
+				{{#each equipment}}
+				{{/each}}	
+			</ol>
+			<p>Instructions:</p>
+			<ol>
+				{{#each instruction}}
+					<br><li>{{step}}</li>
+				{{/each}}
+			</ol>
+		</div>
+	</div>
 </template>

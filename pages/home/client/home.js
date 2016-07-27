@@ -23,7 +23,7 @@ Template.home.events({
             //return instance.state.set("recipes",r.results);
             console.dir("result");
             console.dir(result);
-            return Session.set("recipes",r);
+            //return Session.set("recipes",r);
         
         }
 
