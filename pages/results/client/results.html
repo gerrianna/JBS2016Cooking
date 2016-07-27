@@ -1,6 +1,13 @@
 <template name = "results">
 	<div class = "col-md-9">
-		<center><top>	Results</top></center>
+		<center>
+			<top>
+				Results
+			</top>
+			<button class="js-talk btn btn-lg btn-info">
+				Talk
+			</button>
+		</center>
 	<!--	<center>Number of results to show:
 		<select class="js-show">
 		<option>{{number}}</option>
@@ -48,9 +55,14 @@
 			<center>
 				<more>
 				<a href class="js-showMore">
+<<<<<<< HEAD
 					<span class="glyphicon glyphicon-plus-sign"></span>Show 10 more<span class="glyphicon glyphicon-plus-sign"></span>
 				</a>
 
+=======
+					Show 10 more &nbsp;<span class = "glyphicon glyphicon-plus-sign"></span>
+				</a>
+>>>>>>> 9755dbf4d99e37370989cf79fb72bcdcb38a19ea
 			</more>
 			</center>
 		{{else}}
@@ -63,7 +75,6 @@
 		</div>
 	-->
 	<button class="js-newsearch btn btn-lg btn-info">New Search</button>
-
  	</ul>
  </div>
 </template>
@@ -73,10 +84,6 @@
 	<span class="js-addFavorite glyphicon glyphicon-star-empty custom"></span>
 		<!-- <button class ="js-addFavorite glyphicon glyphicon-star-empty custom"></button>-->
 </template>
-
-
-
-
 
 <template name="instructions">
 	<div class="row">
@@ -95,13 +102,15 @@
 			<ol>
 				<p><span id="ingredients"></span></p>
 				{{#each ingredient}}
-				{{/each}}
+
+				{{/each}}	
 			</ol>
 			<p>Equipment</p>
 			<ol>
 				<p><span id="eq"></span></p>
 				{{#each equipment}}
-				{{/each}}
+
+				{{/each}}	
 			</ol>
 			<p>Instructions:</p>
 			<ol>

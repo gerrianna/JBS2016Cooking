@@ -1,5 +1,9 @@
 Meteor.publish("theShoppingList", function(){
-	return Shopping.find();
+	if(this.userId){
+		return Shopping.find();
+	} else {
+		this.ready();
+	}
 })
 
 
@@ -13,4 +17,12 @@ Meteor.publish("theFridgeList", function(){
 
 Meteor.publish("theFriendsList", function(){
 	return Friends.find();
+})
+
+Meteor.publish("theIns",function(){
+	return Ins.find();
+})
+
+Meteor.publish("theHealth", function(){
+	return Health.find();
 })
