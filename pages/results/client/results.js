@@ -114,4 +114,6 @@ Template.results.events({
     Meteor.call("removeRec");
     Router.go('/');
   }
-})
+});
+
+
