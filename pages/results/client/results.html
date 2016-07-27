@@ -47,7 +47,10 @@
     	{{/each}}
 			<center>
 				<more>
-				<a href class="js-showMore">Show 10 more</a>
+				<a href class="js-showMore">
+					<span class="glyphicon glyphicon-plus-sign"></span>Show 10 more<span class="glyphicon glyphicon-plus-sign"></span>
+				</a>
+
 			</more>
 			</center>
 		{{else}}
@@ -69,4 +72,43 @@
 	<!--	 <button  class="glyphicon glyphicon-thumbs-up"></button>-->
 	<span class="js-addFavorite glyphicon glyphicon-star-empty custom"></span>
 		<!-- <button class ="js-addFavorite glyphicon glyphicon-star-empty custom"></button>-->
+</template>
+
+
+
+
+
+<template name="instructions">
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+			<center>
+				<top>
+					{{headername}}
+				</top>
+			</center>
+			{{#each recipeInfo}}
+				Prep Minutes : {{preparationMinutes}}
+			{{/each}}
+			<p>Ingredients</p>
+			<ol>
+				<p><span id="ingredients"></span></p>
+				{{#each ingredient}}
+				{{/each}}
+			</ol>
+			<p>Equipment</p>
+			<ol>
+				<p><span id="eq"></span></p>
+				{{#each equipment}}
+				{{/each}}
+			</ol>
+			<p>Instructions:</p>
+			<ol>
+				{{#each instruction}}
+					<br><li>{{step}}</li>
+				{{/each}}
+			</ol>
+		</div>
+	</div>
 </template>
