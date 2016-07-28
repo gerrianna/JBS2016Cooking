@@ -43,11 +43,12 @@ Template.results.events({
   //  const recipe = this.recipe._id;
     const favorite = this.recipe.title;
     var favorite_obj={
-      text:favorite,
+      title:favorite,
+      id:this.recipe.id,
       image:this.recipe.image,
       user:Meteor.userId()
     };
-    Meteor.call("addFavorite",shopping_obj);
+    Meteor.call("addFavorite",favorite_obj);
   },
   "click .js-reclink":function(events){
     //events.preventDefaults();

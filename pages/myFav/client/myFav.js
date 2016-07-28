@@ -23,5 +23,51 @@ Template.myFav.events({
 		console.dir(favorite);
 		Meteor.call("removeFavorite",favorite);
 	},
+	"click .js-reclink":function(events){
+    //events.preventDefaults();
+    console.log("hi");
+		console.log(this);
+    var recId = this.id;
+    console.log("recId");
+    console.log(recId);
+    var name = this.text;
+    console.log("name");
+    console.log(name);
+    var id = this._id;
+    //Sessions.setPersistent("selectedrecipe",id);
+    Session.set("recname",name);
+    var u = Session.get("recname");
+    console.log(u);
+    Meteor.call("removeIns");
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
 
 });
