@@ -1,0 +1,46 @@
+<template name="instructions">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<center>
+				<top>
+					{{#each recipeInfo}}
+						{{title}}<br>
+						<img src="{{image}}" width="200" height="150">
+					{{/each}}
+				</top>
+			</center>
+			{{#each recipeInfo}}
+				<center>
+					<br>
+					<strong>
+						Cooking Time: {{cookingMinutes}} min <br>
+						Prep Time: {{preparationMinutes}} min <br>
+						Total Time: {{readyInMinutes}} min <br>
+						Serving Size: {{servings}} <br>
+					</strong>
+				</center>
+
+
+			{{/each}}
+			<h3>Ingredients</h3>
+			<ol>
+				<p><span id="ingredients"></span></p>
+				{{#each ingredient}}
+				{{/each}}
+			</ol>
+			<h3>Equipment</h3>
+			<ol>
+				<p><span id="eq"></span></p>
+				{{#each equipment}}
+				{{/each}}
+			</ol>
+			<h2>Instructions</h2>
+			<ol>
+				{{#each instruction}}
+					<br><li>{{step}}</li>
+				{{/each}}
+			</ol>
+		</div>
+	</div>
+</template>

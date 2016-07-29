@@ -65,6 +65,7 @@ Template.dessert.events({
     var u = Session.get("recname");
     console.log(u);
     Meteor.call("removeIns");
+    Meteor.call("removeHealth");
 
     Meteor.apply("getInstructions",[recId],
       function(error,result){

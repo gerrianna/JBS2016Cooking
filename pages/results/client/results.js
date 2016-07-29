@@ -65,6 +65,7 @@ Template.results.events({
     var u = Session.get("recname");
     console.log(u);
     Meteor.call("removeIns");
+    Meteor.call("removeHealth");
 
     Meteor.apply("getInstructions",[recId],
       function(error,result){
@@ -146,69 +147,4 @@ Template.results.events({
         }
     );
   }
-});
-
-Template.instructions.helpers({
-  instruction: function(){
-    let user = Ins.findOne({})
-    console.log("user");
-    console.log(user);
-    return user && user.steps;
-  },
-  ingredient: function(){
-    let ingr = Ins.findOne({})
-    var ingredients = [];
-    for(var i=0; i<ingr.steps.length; i++){
-      for(var j=0; j<ingr.steps[i].ingredients.length; j++){
-          ingredients.push(ingr.steps[i].ingredients[j].name);
-      }
-    }
-    var newone = _.uniq(ingredients);
-
-    function register(){
-      var printThis = "";
-      for(var i = 0; i < newone.length; i++){
-        printThis += "<br>"+newone[i];
-      }
-      return printThis;
-    }
-    document.getElementById('ingredients').innerHTML = register();
-
-  },
-  equipment: function(){
-    let equip = Ins.findOne({})
-    console.log("equip");
-    console.log(equip);
-    var eq = [];
-    for(var i=0; i<equip.steps.length; i++){
-      for(var j=0; j<equip.steps[i].equipment.length; j++){
-          eq.push(equip.steps[i].equipment[j].name);
-      }
-    }
-    var newone = _.uniq(eq);
-
-    function reg(){
-      var printThis = "";
-      for(var i = 0; i < newone.length; i++){
-        printThis += "<br>"+newone[i];
-      }
-      return printThis;
-    }
-    document.getElementById('eq').innerHTML = reg();
-  },
-  recipeInfo : function(){
-    return Health.find({});
-  },
-  headername: function(){
-    var x = Session.get("recname");
-    console.log(x);
-    return x;
-  },
-
-/*
-  "click .js-next": function(event){
-    const skip =
-    Session.set("offset",)
-  },
-  */
 });
