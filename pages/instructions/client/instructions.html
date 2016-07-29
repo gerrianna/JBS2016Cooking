@@ -5,10 +5,14 @@
 			<center>
 				<top>
 					{{#each recipeInfo}}
-						{{title}}<br>
-						<img src="{{image}}" width="200" height="150">
+						{{title}}
 					{{/each}}
 				</top>
+				<button class="js-talk btn btn-lg btn-info">Talk</button><br>
+				{{#each recipeInfo}}
+					<img src="{{image}}" width="200" height="150">
+				{{/each}}
+				
 			</center>
 			{{#each recipeInfo}}
 				<center>

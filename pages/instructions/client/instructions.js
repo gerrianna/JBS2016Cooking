@@ -49,12 +49,10 @@ Template.instructions.helpers({
   },
   recipeInfo : function(){
     return Health.find({});
-  }
-
-/*
-  "click .js-next": function(event){
-    const skip =
-    Session.set("offset",)
   },
-  */
 });
+Template.instructions.events({
+  "click .js-talk": function(event,instance){
+    Meteor.call('pierreSpeak');
+  },
+})
