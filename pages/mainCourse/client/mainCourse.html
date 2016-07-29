@@ -1,0 +1,32 @@
+<template name="mainCourse">
+
+  <center><top>	Main Courses</top></center>
+  <hr>
+  <div class ="col-md-9">
+  {{#each m in mains}}
+    <li>
+      {{#with m}}
+        {{#if correctUrl}}
+          <img src="{{m.image}}" width = "100" height = "100">
+        {{else}}
+          <img src="https://spoonacular.com/recipeImages/{{m.image}}" width="100" height = "100">
+        {{/if}}
+        <a href="{{m.href}}" class="js-reclink"><name>{{m.title}}</name></a>
+        <br>
+        <e>Likes: {{m.likes}}</e>
+        <!--<a href="#">--> 
+        {{> mainRow  mains=m}}
+      {{/with}}
+
+    <!--</a>-->
+    </li>
+    <br>
+  {{/each}}
+</div>
+</template>
+
+<template name="mainRow">
+	<!--	 <button  class="glyphicon glyphicon-thumbs-up"></button>-->
+	<span class="js-addFavorite glyphicon glyphicon-star-empty custom"></span>
+		<!-- <button class ="js-addFavorite glyphicon glyphicon-star-empty custom"></button>-->
+</template>

@@ -17,6 +17,7 @@
         {{else}}
           <img src="https://spoonacular.com/recipeImages/{{f.image}}" width="75" height = "75">
         {{/if}}
+        <a href="{{f.href}}" class="js-reclink"><name>{{f.title}}</name></a>
         {{> favoriteRow  favoriteList = f}}
       {{/with}}
     </li>
@@ -27,7 +28,7 @@
 </template>
 
 <template name = "favoriteRow">
-  <name><a href="{{favoriteList.href}}">{{favoriteList.text}}</a></name>
+  <!--<name><a href="{{favoriteList.href}}">{{favoriteList.text}}</a></name>-->
  <!--<img src="{{favoriteList.image}}" width = "75" height = "75">	{{favoriteList.text}}-->
 		<span class="js-delete-favorite glyphicon glyphicon-remove" aria-hidden="true">
 	    </span>

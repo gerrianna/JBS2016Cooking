@@ -32,6 +32,22 @@ Meteor.methods({
      console.dir(z);
      return z.content;
   },
+  "getMeal":
+  function(search){
+    const mealType = search.mealType;
+    var apikey = Meteor.settings.spoonacular;
+    const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?limitLicense=false&number=10&offset=0&query="+mealType+"&ranking=1&type="+mealType;
+    const z = HTTP.call("GET",
+      url,
+     {headers: {
+       "X-Mashape-Key": apikey,
+       "Accept": "application/json"
+      }}
+    );
+    console.dir(z);
+    return z.content;
+
+  },
   "advancedGet":
   function(search){
     console.dir("hi");
@@ -254,7 +270,7 @@ Meteor.methods({
   "getInstructions": function(recId){
     var apikey = Meteor.settings.spoonacular;
     const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+recId+"/analyzedInstructions?stepBreakdown=true";
-    const z = HTTP.call("GET", 
+    const z = HTTP.call("GET",
       url,
       {headers: {
         "X-Mashape-Key": apikey,
@@ -270,7 +286,7 @@ Meteor.methods({
   "getRecipeIngredients":function(recId){
     var apikey = Meteor.settings.spoonacular;
     const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+recId+"/information?includeNutrition=true";
-    const z = HTTP.call("GET", 
+    const z = HTTP.call("GET",
       url,
       {headers: {
         "X-Mashape-Key": apikey,

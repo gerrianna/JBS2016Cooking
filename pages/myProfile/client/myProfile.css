@@ -6,3 +6,35 @@
   font-size:25px;
   font-family: inherit;
 }
+
+#rcornersS{
+  border-radius: 25px;
+  background-image: url("https://thumbs.dreamstime.com/t/pink-white-gradient-background-47533969.jpg");
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcornersF{
+  border-radius: 25px;
+  background-image: url("http://randomwallpapers.net/green-gradient-abstract-1920x1080-wallpaper310409.jpg");
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcornersP{
+  border-radius: 25px;
+  background-image: url("http://cdn.pcwallart.com/images/light-blue-gradient-wallpaper-2.jpg");
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcornersFa{
+  border-radius: 25px;
+  background-image: url("http://www.showandtell-graphics.com/images/collage/picture-collage2.jpg");
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}

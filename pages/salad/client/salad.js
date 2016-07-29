@@ -1,39 +1,62 @@
+Template.salad.helpers({
+  salads: function(){
+    const number = Session.get("number");
+    const mealType = "Salad";
+    console.log(number);//10
+    Session.set("search",{
+      recipe:null,
+      ingr:null,
+      cuisine:null,
+      mealType:mealType,
+      allergies:null,
+      maxCal:null,
+      maxCarb:null,
+      maxFat:null,
+      maxProtein:null,
+      minCal:null,
+      minCarb:null,
+      minFat:null,
+      minProtein:null,
+      number:number,
+      //offset:0,
+    });
+    const search = Session.get("search");
+    console.log(search);
 
-Template.myFav.helpers({
-	favoritesList:function(){return Favorites.find({user:Meteor.userId()})}
-})
-
-Template.myFav.helpers({
-	favoriteList:function(){return Favorites.find({user:Meteor.userId()})},
-
-	correctUrl: function(){
-  //  const string = "https://spoonacular.com/recipeImages/";
+    Meteor.apply("getMeal",[search],{returnStubValue: true},
+        function(error,result){
+          if(error) {
+            console.dir(error);
+          }
+          console.dir("result=");
+          console.dir(result);
+          r = JSON.parse(result);
+          console.dir("r= ");
+          console.dir(r);
+          x = r.results;
+          console.dir(x);
+          return Session.set("recipes",x);
+        }
+    );
+    return Session.get("recipes");
+  },
+  correctUrl: function(){
     var image = this.image;
     console.log(this);
     //console.log(image);
     return image.startsWith("https://spoonacular.com/recipeImages/");
   },
-});
 
+})
 
-Template.myFav.events({
-	"click .js-delete-favorite": function(event){
-		console.log(this.favoriteList._id);
-		const favorite = Favorites.findOne({_id:this.favoriteList._id});
-		console.dir(favorite);
-		Meteor.call("removeFavorite",favorite);
-	},
-	"click .js-talk": function(event){
-		Meteor.call('pierreSpeak');
-	},
-	"click .js-reclink":function(events){
+Template.salad.events({
+  "click .js-reclink":function(events){
     //events.preventDefaults();
     console.log("hi");
-		console.log(this);
     var recId = this.id;
     console.log("recId");
     console.log(recId);
-    var name = this.text;
+    var name = this.title;
     console.log("name");
     console.log(name);
     var id = this._id;
@@ -72,5 +95,4 @@ Template.myFav.events({
     );
     Router.go('/instructions');
   },
-
-});
+})
