@@ -7,6 +7,7 @@ div#header{
 	margin-left: -1.5%;
 	background-color: #AAD9B2;
 	border-bottom: 20;
+	border-radius: 25px;
 }
 
 #loginButton{

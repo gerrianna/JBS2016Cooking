@@ -1,13 +1,15 @@
 <template name="myShopping">
 	<div class = "col-md-9">
-  	<top><center>My Shopping List</center></top>
+  	<center><top>My Shopping List</top>
+  		<button class="js-talk btn btn-lg btn-info">Talk</button><br>
+  	</center>
 		<info><center>Add items needed for recipes to your grocery list as a reminder to buy them the next time you go grocery shopping.</center></info>
 		<hr>
 		<prompt>Add a grocery item to your shopping list:</prompt>
 		<input id = "input" type = "dish" class = "js-shoppingItem" placeholder="Enter Shopping List Item">
 		<button class="js-addShoppingItem btn btn-lg btn-info">Add Item
 		</button>
-		<button class="js-talk btn btn-lg btn-info">Talk</button><br>
+		
 
 	<div class = "bg-danger">
 		{{#each s in shoppingList}}

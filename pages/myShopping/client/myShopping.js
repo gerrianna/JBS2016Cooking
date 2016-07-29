@@ -19,6 +19,6 @@ Template.myShopping.events({
 		Meteor.call("removeShopping",item);
 	},
 	"click .js-talk": function(event){
-    Meteor.call('pierreSpeak');
+    	Meteor.call('pierreSpeak');
 	}
 })
