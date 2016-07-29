@@ -23,6 +23,9 @@ Template.myFav.events({
 		console.dir(favorite);
 		Meteor.call("removeFavorite",favorite);
 	},
+	"click .js-talk": function(event){
+		Meteor.call('pierreSpeak');
+	},
 	"click .js-reclink":function(events){
     //events.preventDefaults();
     console.log("hi");
