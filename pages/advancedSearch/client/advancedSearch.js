@@ -32,6 +32,7 @@ Template.advancedSearch.events({
     console.log("cuisine = " + cuisine);
 
     const mealType = $(".js-type").val();//mealType
+    
     console.log("meal type = " + mealType);
 
     const allergies = $(".js-allergies").val();//allergies/exclude ingredients
@@ -106,6 +107,7 @@ Template.advancedSearch.events({
       //offset:0,
     });
     const search = Session.get("search");
+    console.log("search: "+search);
 
     Meteor.apply("advancedGet",[search],{returnStubValue: true},
         function(error,result){
