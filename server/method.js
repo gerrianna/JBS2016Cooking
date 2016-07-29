@@ -280,5 +280,9 @@ Meteor.methods({
     console.dir(z);
     return z.content;
   },
+  "removeHealth":
+  function(){
+    Health.remove({});
+  }
 
 })
