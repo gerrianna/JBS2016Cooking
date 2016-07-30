@@ -1,3 +1,11 @@
+Template.instructions.onCreated(function() {
+  //this.state = new ReactiveDict();
+  Session.setDefault({
+    stepNum:0,
+    //offset:90,
+  });
+});
+
 Template.instructions.helpers({
   instruction: function(){
     let user = Ins.findOne({})
