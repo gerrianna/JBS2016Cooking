@@ -2,6 +2,7 @@ Template.instructions.onCreated(function() {
   //this.state = new ReactiveDict();
   Session.setDefault({
     stepNum:0,
+    ingredients: []
     //offset:90,
   });
 });
@@ -22,6 +23,7 @@ Template.instructions.helpers({
         console.log(ingr.extendedIngredients[i].originalString);
         ingredients.push(ingr.extendedIngredients[i].originalString);
     }
+    Session.set("ingredients",ingredients);
     var newone = _.uniq(ingredients);
 
     function register(){
