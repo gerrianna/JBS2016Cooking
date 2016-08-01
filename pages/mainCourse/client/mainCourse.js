@@ -46,6 +46,7 @@ Template.mainCourse.helpers({
     //console.log(image);
     return image.startsWith("https://spoonacular.com/recipeImages/");
   },
+  
 
 })
 

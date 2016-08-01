@@ -1,8 +1,8 @@
 Template.home.onCreated(function() {
   //this.state = new ReactiveDict();
-  Session.setDefault({
-    number:10,
-    //offset:90,
+  this.state = new ReactiveDict();
+  this.state.setDefault({
+    number: 10,
   });
 
   console.log("creating the template");
@@ -12,7 +12,7 @@ Template.home.helpers({
   number: function(){
     const instance = Template.instance();
     //return instance.state.get("recipes");
-    return Session.get("number");
+    return instance.state.get("number");
   },
 });
 
@@ -28,7 +28,7 @@ Template.home.events({
     console.log("dish = " + dish);
     //const number = $(".js-showNum").val();
 
-    const number = Session.get("number");
+    const number = instance.state.get("number");
     //const offset = Session.get("offset");
     console.log("num:")
     console.log(number);
@@ -75,7 +75,53 @@ Template.home.events({
     );
   },
 
-  "click .js-talk": function(event,instance){
+  "click .js-talk": function(event){
     Meteor.call('pierreSpeak');
+  },
+  "click .js-reclink":function(events){
+    //events.preventDefaults();
+    console.log("hi");
+    var recId = this.id;
+    console.log("recId");
+    console.log(recId);
+    var name = this.title;
+    console.log("name");
+    console.log(name);
+    var id = this._id;
+    //Sessions.setPersistent("selectedrecipe",id);
+    Session.set("recname",name);
+    var u = Session.get("recname");
+    console.log(u);
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
   },
 })

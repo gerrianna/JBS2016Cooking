@@ -13,7 +13,7 @@ Template.results.helpers({
   number: function(){
     const instance = Template.instance();
     //return instance.state.get("recipes");
-    return Session.get("number");
+    return instance.state.get("number");
   },
   recipes: function(){
     const instance = Template.instance();
@@ -30,7 +30,7 @@ Template.results.helpers({
 });
 
 Template.results.events({
-  "click .js-talk": function(event,instance){
+  "click .js-talk": function(event){
     Meteor.call('pierreSpeak');
   },
   "click .js-addFavorite": function(event){
@@ -100,13 +100,13 @@ Template.results.events({
     Meteor.call("removeRec");
     Router.go('/');
   },
-    "click .js-showMore": function(event){
-    const currentNum = Session.get("number");
+    "click .js-showMore": function(event,instance){
+    const currentNum = instance.state.get("number");
     console.dir("currenNum: "+currentNum);
     const moreNum = currentNum + 10;
     console.dir("newNum: "+moreNum);
-    Session.set("number",moreNum);
-    const number = Session.get("number");
+    instance.state.set("number",moreNum);
+    const number = instance.state.get("number");
     console.dir("numSession: "+number);
     const search = Session.get("search");
     Session.set("search",{
