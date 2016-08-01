@@ -32,7 +32,7 @@ Template.advancedSearch.events({
     console.log("cuisine = " + cuisine);
 
     const mealType = $(".js-type").val();//mealType
-    
+
     console.log("meal type = " + mealType);
 
     const allergies = $(".js-allergies").val();//allergies/exclude ingredients
@@ -85,7 +85,7 @@ Template.advancedSearch.events({
       }
     }
     console.log("diets = "+ diets);
-
+    Session.set("number",10);
     const number = Session.get("number");
     //const offset = Session.get("offset");
 
