@@ -13,7 +13,7 @@ Template.results.helpers({
   number: function(){
     const instance = Template.instance();
     //return instance.state.get("recipes");
-    return instance.state.get("number");
+    return Session.get("number");
   },
   recipes: function(){
     const instance = Template.instance();
@@ -101,12 +101,12 @@ Template.results.events({
     Router.go('/');
   },
     "click .js-showMore": function(event,instance){
-    const currentNum = instance.state.get("number");
+    const currentNum = Session.get("number");
     console.dir("currenNum: "+currentNum);
     const moreNum = currentNum + 10;
     console.dir("newNum: "+moreNum);
-    instance.state.set("number",moreNum);
-    const number = instance.state.get("number");
+    Session.set("number",moreNum);
+    const number = Session.get("number");
     console.dir("numSession: "+number);
     const search = Session.get("search");
     Session.set("search",{
