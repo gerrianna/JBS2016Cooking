@@ -30,7 +30,7 @@ Template.results.helpers({
 });
 
 Template.results.events({
-  "click .js-talk": function(event,instance){
+  "click .js-talk": function(event){
     Meteor.call('pierreSpeak');
   },
   "click .js-addFavorite": function(event){
@@ -100,7 +100,7 @@ Template.results.events({
     Meteor.call("removeRec");
     Router.go('/');
   },
-    "click .js-showMore": function(event){
+    "click .js-showMore": function(event,instance){
     const currentNum = Session.get("number");
     console.dir("currenNum: "+currentNum);
     const moreNum = currentNum + 10;

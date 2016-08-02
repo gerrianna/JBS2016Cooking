@@ -35,8 +35,9 @@ Meteor.methods({
   "getMeal":
   function(search){
     const mealType = search.mealType;
+    const number = search.number;
     var apikey = Meteor.settings.spoonacular;
-    const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?limitLicense=false&number=10&offset=0&query="+mealType+"&ranking=1&type="+mealType;
+    const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?limitLicense=false&number="+number+"&offset=0&query="+mealType+"&ranking=1&type="+mealType;
     const z = HTTP.call("GET",
       url,
      {headers: {
@@ -296,8 +297,7 @@ Meteor.methods({
     console.dir(z);
     return z.content;
   },
-  "removeHealth":
-  function(){
+  "removeHealth":function(){
     Health.remove({});
   }
 

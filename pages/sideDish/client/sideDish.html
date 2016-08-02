@@ -1,8 +1,12 @@
 <template name="sideDish">
-
-  <center><top>	Side Dishes</top></center>
-  <hr>
   <div class ="col-md-9">
+  <center><top>Featured Side Dishes</top>
+     <button class="js-talk btn btn-lg btn-info">Talk</button><br>
+  </center>
+  <ul><hr>
+    <button class="js-newsearch btn btn-lg btn-info pull-right">New Search</button>
+    <center>Showing <b>{{sides.length}}</b> recipes that match your search criteria!</center>
+    <br>
   {{#each s in sides}}
     <li>
       {{#with s}}
@@ -17,11 +21,20 @@
         <!--<a href="#">--> 
         {{> sidesRow  sides=s}}
       {{/with}}
-
     <!--</a>-->
     </li>
     <br>
   {{/each}}
+  <center>Showing <b>{{sides.length}}</b> recipes that match your search criteria!</center>
+    <center>
+      <more>
+      <a href class="js-showMoreA">
+        Show 10 more &nbsp;<span class="glyphicon glyphicon-plus-sign"></span>
+      </a>
+    </more>
+    </center>
+    <button class="js-newsearch btn btn-lg btn-info pull-right">New Search</button>
+  </ul>
 </div>
 </template>
 

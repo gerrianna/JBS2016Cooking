@@ -2,7 +2,6 @@ Template.home.onCreated(function() {
   //this.state = new ReactiveDict();
   Session.setDefault({
     number:10,
-    //offset:90,
   });
 
   console.log("creating the template");
@@ -19,7 +18,7 @@ Template.home.helpers({
 Template.home.events({
   "click .js-recipe": function(event,instance){
     //const ingr = $(".js-ingr").val(); //this gets what the user typed in
-
+    Session.set("number",10);
     const dish = $(".js-dish").val(); //this gets the dish the user want to make
     Session.set("dish",dish);
     const recipe = Session.get("dish");
@@ -74,8 +73,299 @@ Template.home.events({
         }
     );
   },
-
-  "click .js-talk": function(event,instance){
+  "click .js-talk": function(event){
     Meteor.call('pierreSpeak');
   },
+  "click .js-reclink":function(events){
+    //events.preventDefaults();
+    console.log("hi");
+    var recId = this.id;
+    console.log("recId");
+    console.log(recId);
+    var name = this.title;
+    console.log("name");
+    console.log(name);
+    var id = this._id;
+    //Sessions.setPersistent("selectedrecipe",id);
+    Session.set("recname",name);
+    var u = Session.get("recname");
+    console.log(u);
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+  "click .js-clickedShortcake": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 554173;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+  "click .js-clickedChicken": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 543421;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+
+  "click .js-clickedLemon": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 383668;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+  "click .js-clickedPulled": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 208409;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+  "click .js-clickedPulled": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 208409;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+  "click .js-clickedMein": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 615658;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+
+  "click .js-appetizer": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-bread": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-breakfast": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-beverage": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-dessert": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-main": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-salad": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-sauce": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-side": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-soup": function(event){
+    Session.set("number",10);
+  },
+
 })
