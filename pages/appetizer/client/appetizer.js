@@ -1,6 +1,20 @@
+Template.appetizer.onCreated(function() {
+  Session.setDefault({
+    number:10,
+  });
+});
+
+Template.appetizer.onRendered = function() {
+    if(!this._rendered) {
+      this._rendered = true;
+    }
+    Session.set("number",10);
+  console.log('Template onLoad');
+}
+
+
 Template.appetizer.helpers({
   appetizers: function(){
-    Session.set("number",10);
     const number = Session.get("number");
     console.log("number: "+number);
     const mealType = "Appetizer";
@@ -23,13 +37,14 @@ Template.appetizer.helpers({
       //offset:0,
     });
     const search = Session.get("search");
-    console.log(search);
+    console.log("Searchset: "+search);
 
     Meteor.apply("getMeal",[search],{returnStubValue: true},
         function(error,result){
           if(error) {
             console.dir(error);
           }
+          console.dir("getMealSearch");
           console.dir("result=");
           console.dir(result);
           r = JSON.parse(result);
@@ -52,6 +67,9 @@ Template.appetizer.helpers({
 })
 
 Template.appetizer.events({
+"click .js-talk": function(event){
+    Meteor.call('pierreSpeak');
+},
 "click .js-reclink":function(events){
   //events.preventDefaults();
   console.log("hi");
@@ -107,7 +125,7 @@ Session.set("number",moreNum);
 const number = Session.get("number");
 console.dir("numSession: "+number);
 const search = Session.get("search");
-console.dir("mealType: "+mealType);
+console.dir("mealType: "+ search.mealType);
 Session.set("search",{
   recipe:search.recipe,
   ingr:search.ingr,
@@ -129,11 +147,13 @@ const updatedSearch = Session.get("search");
 console.log("searchNum: "+updatedSearch.number);
 console.dir("search_obj:"+updatedSearch);
 console.dir("search_recipe: "+updatedSearch.recipe);
+console.dir("mealType: "+updatedSearch.mealType);
 Meteor.apply("getMeal",[updatedSearch],{returnStubValue: true},
     function(error,result){
       if(error) {
         console.dir(error);
       }
+      console.dir("getMealUpdated");
       console.dir("result=");
       console.dir(result);
       r = JSON.parse(result);
@@ -144,6 +164,6 @@ Meteor.apply("getMeal",[updatedSearch],{returnStubValue: true},
       return Session.set("recipes",x);
 
     }
-);
-},
+  );
+  },
 })

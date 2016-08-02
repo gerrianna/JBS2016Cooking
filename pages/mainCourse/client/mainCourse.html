@@ -1,8 +1,12 @@
 <template name="mainCourse">
-
-  <center><top>	10 Featured Main Courses</top></center>
-  <hr>
   <div class ="col-md-9">
+  <center><top>Featured Main Course Items</top>
+     <button class="js-talk btn btn-lg btn-info">Talk</button><br>
+  </center>
+  <ul><hr>
+    <button class="js-newsearch btn btn-lg btn-info pull-right">New Search</button>
+    <center>Showing <b>{{mains.length}}</b> recipes that match your search criteria!</center>
+    <br>
   {{#each m in mains}}
     <li>
       {{#with m}}
@@ -15,17 +19,26 @@
         <br>
         <e>Likes: {{m.likes}}</e>
         <!--<a href="#">--> 
-        {{> mainRow  mains=m}}
+        {{> mainsRow  mains=m}}
       {{/with}}
-
     <!--</a>-->
     </li>
     <br>
   {{/each}}
+  <center>Showing <b>{{mains.length}}</b> recipes that match your search criteria!</center>
+    <center>
+      <more>
+      <a href class="js-showMoreA">
+        Show 10 more &nbsp;<span class="glyphicon glyphicon-plus-sign"></span>
+      </a>
+    </more>
+    </center>
+    <button class="js-newsearch btn btn-lg btn-info pull-right">New Search</button>
+  </ul>
 </div>
 </template>
 
-<template name="mainRow">
+<template name="mainsRow">
 	<!--	 <button  class="glyphicon glyphicon-thumbs-up"></button>-->
 	<span class="js-addFavorite glyphicon glyphicon-star-empty custom"></span>
 		<!-- <button class ="js-addFavorite glyphicon glyphicon-star-empty custom"></button>-->

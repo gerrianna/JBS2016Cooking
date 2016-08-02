@@ -327,4 +327,45 @@ Template.home.events({
     );
     Router.go('/instructions');
   },
+
+  "click .js-appetizer": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-bread": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-breakfast": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-beverage": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-dessert": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-main": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-salad": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-sauce": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-side": function(event){
+    Session.set("number",10);
+  },
+
+  "click .js-soup": function(event){
+    Session.set("number",10);
+  },
+
 })

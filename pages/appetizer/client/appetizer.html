@@ -1,8 +1,12 @@
 <template name="appetizer">
-
-  <center><top>	10 Featured Appetizers</top></center>
-  <hr>
   <div class ="col-md-9">
+  <center><top>Featured Appetizers</top>
+     <button class="js-talk btn btn-lg btn-info">Talk</button><br>
+  </center>
+  <ul><hr>
+    <button class="js-newsearch btn btn-lg btn-info pull-right">New Search</button>
+    <center>Showing <b>{{appetizers.length}}</b> recipes that match your search criteria!</center>
+    <br>
   {{#each a in appetizers}}
     <li>
       {{#with a}}
@@ -17,21 +21,20 @@
         <!--<a href="#">--> 
         {{> appetizersRow  appetizers=a}}
       {{/with}}
-
     <!--</a>-->
     </li>
     <br>
   {{/each}}
-  <center>
-    <center>Showing <b>{{appetizers.length}}</b> recipes that match your search criteria!</center>
+  <center>Showing <b>{{appetizers.length}}</b> recipes that match your search criteria!</center>
     <center>
       <more>
-      <a href class="js-showMore">
+      <a href class="js-showMoreA">
         Show 10 more &nbsp;<span class="glyphicon glyphicon-plus-sign"></span>
       </a>
     </more>
     </center>
-</center>
+    <button class="js-newsearch btn btn-lg btn-info pull-right">New Search</button>
+  </ul>
 </div>
 </template>
 
