@@ -76,7 +76,7 @@ Template.results.events({
       image:this.recipe.image,
       user:Meteor.userId()
     };
-    Meteor.call("addFavorite",shopping_obj);
+    Meteor.call("addFavorite",favorite_obj);
   },
   "click .js-reclink":function(events){
     //events.preventDefaults();
