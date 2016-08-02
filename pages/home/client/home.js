@@ -73,7 +73,6 @@ Template.home.events({
         }
     );
   },
-
   "click .js-talk": function(event){
     Meteor.call('pierreSpeak');
   },
@@ -93,6 +92,211 @@ Template.home.events({
     console.log(u);
     Meteor.call("removeIns");
     Meteor.call("removeHealth");
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+  "click .js-clickedShortcake": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 554173;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+  "click .js-clickedChicken": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 543421;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+
+  "click .js-clickedLemon": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 383668;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+  "click .js-clickedPulled": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 208409;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+  "click .js-clickedPulled": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 208409;
+
+    Meteor.apply("getInstructions",[recId],
+      function(error,result){
+        x = JSON.parse(result);
+        console.dir(x);
+        const text = x[0].name;
+        console.dir("text");
+        console.dir(text);
+        const instructionsArray = x[0].steps;
+        console.dir(x[0]);
+        Meteor.call("insertIns",x[0]);
+        /*for(var i=0;i<x.length; i++){
+          console.dir("hello");
+          console.dir(x[i]);
+          var c = x[i];
+          console.dir(c);
+          Meteor.call("insertIns",c);
+        }*/
+        //return Ins.find({});
+      }
+    );
+    Meteor.apply("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log(a);
+        Health.insert(a);
+      }
+    );
+    Router.go('/instructions');
+  },
+  "click .js-clickedMein": function(event){
+    Meteor.call("removeIns");
+    Meteor.call("removeHealth");
+    const recId = 615658;
 
     Meteor.apply("getInstructions",[recId],
       function(error,result){
