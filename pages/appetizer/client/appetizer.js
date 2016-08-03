@@ -70,6 +70,10 @@ Template.appetizer.events({
 "click .js-talk": function(event){
     Meteor.call('pierreSpeak');
 },
+"click .js-newsearch": function(events){
+ Meteor.call("removeRec");
+ Router.go('/');
+},
 "click .js-reclink":function(events){
   //events.preventDefaults();
   console.log("hi");

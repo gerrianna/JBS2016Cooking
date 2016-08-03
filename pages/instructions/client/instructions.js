@@ -75,4 +75,5 @@ Template.instructions.events({
   "click .js-talk": function(event,instance){
     Meteor.call('pierreSpeak');
   },
+
 })
