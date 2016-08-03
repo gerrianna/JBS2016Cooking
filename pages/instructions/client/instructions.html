@@ -18,11 +18,25 @@
 				<center>
 					<br>
 					<strong>
+						{{#if cookingMinutes}}
 						Cooking Time: {{cookingMinutes}} min <br>
+						{{/if}}
+
+						{{#if preparationMinutes}}
 						Prep Time: {{preparationMinutes}} min <br>
+						{{/if}}
+
+						{{#if readyInMinutes}}
 						Total Time: {{readyInMinutes}} min <br>
+						{{/if}}
+
+						{{#if servings}}
 						Serving Size: {{servings}} <br>
+						{{/if}}
+
+						{{#if aggregateLikes}}
 						<e>Likes: {{aggregateLikes}} </e>
+						{{/if}}
 						<span class="js-addFavorite glyphicon glyphicon-thumbs-up"></span> <br>
 					</strong>
 				</center>

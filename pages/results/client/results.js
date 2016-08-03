@@ -145,6 +145,8 @@ Template.results.events({
       //offset:0,
     });
     const updatedSearch = Session.get("search");
+    console.log("search");
+    console.log(search);
     console.log("searchNum: "+updatedSearch.number);
     console.dir("search_obj:"+updatedSearch);
     console.dir("search_recipe: "+updatedSearch.recipe);
