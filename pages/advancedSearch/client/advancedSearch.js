@@ -93,6 +93,7 @@ Template.advancedSearch.events({
       recipe:recipe,
       ingr:ingr,
       cuisine:cuisine,
+      diet:diets,
       mealType:mealType,
       allergies:allergies,
       maxCal:maxCal,

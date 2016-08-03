@@ -63,10 +63,17 @@ Meteor.methods({
     */
   //  const url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?cuisine="+encodeURIComponent(cuisine)+"&excludeIngredients="+encodeURIComponent(allergies)+"&fillIngredients=false&includeIngredients="+encodeURIComponent(ingr)+"&intolerances="+encodeURIComponent(allergies)+"&limitLicense=false&maxCalories="+maxCal+"&maxCarbs="+maxCarb+"&maxFat="+maxFat+"&maxProtein="+maxProtein+"&minCalories="+minCal+"&minCarbs="+minCarb+"&minFat="+minFat+""&minProtein="+minProtein+"&number=10&offset=0&query="+encodeURIComponent(recipe)+"&ranking=1&type="+encodeURIComponent(mealType);
     var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?";
+    console.log("original url: ");
+    console.log(url);
     console.log(search.cuisine);
    if(search.cuisine){
      url += "cuisine=";
      url += encodeURIComponent(search.cuisine);
+   }
+
+   if(search.diet){
+     url += "&diet=";
+     url += encodeURIComponent(search.diet);
    }
 
    if(search.allergies){
@@ -142,7 +149,7 @@ Meteor.methods({
      url += "&ranking=1&type=";
      url += encodeURIComponent(search.mealType);
    }
-
+   console.log("URL");
     console.log(url);
     const y = HTTP.call("GET",
       url,
