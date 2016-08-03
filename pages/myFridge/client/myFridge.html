@@ -12,10 +12,13 @@
     <div class = "bg-success">
     {{#each f in fridgeList}}
       <li>
-        {{>fridgeRow fridgeList = f}}
+        {{>fridgeRow fridgeList = f}} 
+        <input id="fridgeitem" type="checkbox" name="itemcheckbox" value="fridge">
       </li>
     {{/each}}
     </div>
+    <button class="js-searchfridge">Find</button>
+
   </div>
 
 </template>

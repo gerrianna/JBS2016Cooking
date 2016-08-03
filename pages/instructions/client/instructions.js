@@ -59,9 +59,4 @@ Template.instructions.helpers({
   },
   */
 });
-Template.instructions.events({
-  /*'click .js-day': function(){
-    const day = $(".js-day").val();
-    const planobj = {day: day, meal:}
-  }*/
-})
+

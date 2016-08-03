@@ -21,6 +21,11 @@ Template.myFridge.events({
 
 	"click .js-talk": function(event){
 		Meteor.call('pierreSpeak');
+	},
+	"click .js-searchfridge": function(event){
+		const fridge = document.getElementsByName("itemcheckbox");
+		console.log(fridge);
+		//Meteor.call("getRecipe");
 	}
 
 });

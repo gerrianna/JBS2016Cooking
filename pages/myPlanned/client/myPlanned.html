@@ -2,32 +2,21 @@
   <top><center>My Planned Meals</center></top>
   <info><center>Plan meals ahead of time on this page so that you can organize what you need to buy and prepare ahead of time.</center></info>
   <hr>
-  <div class="col-md-8">
-  	<center>
-  		<ul>
-  			<strong class="js-today">Today</strong><br>
-  			<strong class="js-weekly">Weekly</strong><br>
-  			<strong class="js-monthly">Monthly</strong><br>
-  		</ul>
-  	</center>
-  	{{#each cal}}
-  	{{/each}}
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <td>Sunday</td>
+        <td>Monday</td>
+        <td>Tuesday</td>
+        <td>Wednesday</td>
+        <td>Thursday</td>
+        <td>Friday</td>
+        <td>Saturday</td>
+        <td>Sunday</td>
+      </tr>
+    </thead>
+  </table>
 </template>
 
-<template name="today">
-	<div class="col-md-8">
-		<center>
-			<h1>Today's Meal</h1>
-		</center>
-	</div>
-</template>
 
-<template name="weekly">
-	<h2>Weekly</h2>
-</template>
-
-<template name="monthly">
-	<h2>Monthly</h2>
-</template>
 
