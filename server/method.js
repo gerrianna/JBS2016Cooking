@@ -283,6 +283,35 @@ Meteor.methods({
   "removeHealth":
   function(){
     Health.remove({});
+  },
+  "insertWeekly":function(planobj){
+    Weekly.insert(planobj);
+  },
+  "removeWeekly":function(){
+    Weekly.remove({});
+  },
+  "insertTotal":function(weekday){
+    Total.remove({});
+    console.log(weekday);
+    var a = Weekly.find({day:weekday},{fields:{cal:1}}).fetch();
+    var b = Weekly.find({day:weekday},{fields:{fat:1}}).fetch();
+    var c = Weekly.find({day:weekday},{fields:{carbs:1}}).fetch();
+    var cal = 0;
+    var carbs = 0;
+    var fats = 0;
+    for(var i=0; i<a.length; i++){
+      cal = cal + a[i].cal; 
+    }
+    for(var i=0; i<a.length; i++){
+      fats = fats + b[i].fat; 
+    }
+    for(var i=0; i<a.length; i++){
+      carbs = carbs + c[i].carbs; 
+    }
+
+    const num = {c:cal, f:fats, car:carbs, day:weekday}
+    Total.remove({c:0});
+    Total.insert(num);
   }
 
 })

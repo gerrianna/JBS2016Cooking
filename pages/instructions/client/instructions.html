@@ -1,193 +1,214 @@
 <template name="instructions">
-	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-			<center>
-				<top>
-					{{#each recipeInfo}}
-						{{title}}
-						<img src="{{image}}" width="200" height="150">
-					{{/each}}
-				</top>
-        <button class="js-answer">Sumi</button>
-				Plan Your Week of Meals: <select class="js-day">
-					<option class="js-mon">Monday</option>
-					<option class="js-tues">Tuesday</option>
-					<option class="js-wed">Wednesday</option>
-					<option class="js-thur">Thursday</option>
-					<option class="js-fri">Friday</option>
-					<option class="js-sat">Saturday</option>
-					<option class="js-sun">Sunday</option>
-				</select>
-			</center>
-			{{#each recipeInfo}}
-				<center>
-					<br>
-					<strong>
-						Cooking Time: {{cookingMinutes}} min <br>
-						Prep Time: {{preparationMinutes}} min <br>
-						Total Time: {{readyInMinutes}} min <br>
-						Serving Size: {{servings}} <br>
-					</strong>
-				</center>
-			{{/each}}
-			<h3>Ingredients</h3>
-			<ol>
-				<p><span id="ingredients"></span></p>
-				{{#each ingredient}}
-				{{/each}}	
-			</ol>
-			<h3>Equipment</h3>
-			<ol>
-				<p><span id="eq"></span></p>
-				{{#each equipment}}
-				{{/each}}	
-			</ol>
-			<h2>Instructions</h2>
-			<ol>
-				{{#each instruction}}
-					<br><li>{{step}}</li>
-				{{/each}}
-			</ol>
-			<center>
-				<section class="performance-facts">
-  		<header class="performance-facts__header">
-    	<h1 class="performance-facts__title">Nutrition Facts</h1>
-    	<p>Serving Size 1/2 cup (about 82g)</p>
-    	<p>Serving Per Container 8</p>
- 		 </header>
- 		 <table class="performance-facts__table">
-    		<thead>
-      			<tr>
-        			<th colspan="3" class="small-info">Amount Per Serving</th>
-      			</tr>
-    		</thead>
-    		<tbody>
-      			<tr>
-        			<th colspan="2">
-  						<b>Calories</b>
-          				200
-        			</th>
-        			<td>
-          				Calories from Fat
-          				130
-        			</td>
-      			</tr>
-      			<tr class="thick-row">
-        			<td colspan="3" class="small-info">
-          				<b>% Daily Value*</b>
-        			</td>
-      			</tr>
-      			<tr>
-        			<th colspan="2">
-          				<b>Total Fat</b>
-          				14g
-        			</th>
-        			<td>
-          				<b>22%</b>
-        			</td>
-      			</tr>
-      			<tr>
-        			<td class="blank-cell"></td>
-        			<th>
-          				Saturated Fat
-          				9g
-        			</th>
-        			<td>
-          				<b>22%</b>
-        			</td>
-      			</tr>
-      			<tr>
-        			<td class="blank-cell"></td>
-        			<th>
-			          Trans Fat
-						0g
-			        </th>
-			        <td>
-			        </td>
-			    </tr>
-			    <tr>
-			        <th colspan="2">
-			          <b>Cholesterol</b>
-			          55mg
-			        </th>
-			        <td>
-			          <b>18%</b>
-			        </td>
-			    </tr>
-			    <tr>
-			        <th colspan="2">
-			          <b>Sodium</b>
-			          40mg
-			        </th>
-        			<td>
-          			  <b>2%</b>
-        			</td>
-      			</tr>
-      			<tr>
-        			<th colspan="2">
-          				<b>Total Carbohydrate</b>
-          				17g
-        			</th>
-        			<td>
-          				<b>6%</b>
-        			</td>
-      			</tr>
-      			<tr>
-        			<td class="blank-cell"></td>
-        			<th>
-          				Dietary Fiber
-          				1g
-        			</th>
-        			<td>
-          				<b>4%</b>
-        			</td>
-      			</tr>
-      			<tr>
-        			<td class="blank-cell"></td>
-        			<th>
-			          Sugars
-			          14g
-        			</th>
-        			<td>
-        			</td>
-      			</tr>
-      			<tr class="thick-end">
-        			<th colspan="2">
-          				<b>Protein</b>
-          				3g
-        			</th>
-        			<td>
-        			</td>
-      			</tr>
-    		</tbody>
-  		</table>
-  		<table class="performance-facts__table--grid">
-    		<tbody>
-      			<tr>
-        			<td colspan="2">
-          				Vitamin A
-          				10%
-        			</td>
-        			<td>
-          				Vitamin C
-          				0%
-        			</td>
-      			</tr>
-      			<tr class="thin-end">
-        			<td colspan="2">
-          				Calcium
-          				10%
-        			</td>
-        			<td>
-          				Iron
-          				6%
-        			</td>
-      			</tr>
-    		</tbody>
-  		</table>
-  	</section>
-			</center>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <center>
+        <top>
+          {{#each recipeInfo}}
+            {{title}}
+          {{/each}}
+        </top>
+        <button class="js-talk btn btn-lg btn-info">Talk</button><br>
+        {{#each recipeInfo}}
+          <img src="{{image}}" width="200" height="150">
+        {{/each}}
+
+      </center>
+      {{#each recipeInfo}}
+        <center>
+          <br>
+          <strong>
+            {{#if cookingMinutes}}
+            Cooking Time: {{cookingMinutes}} min <br>
+            {{/if}}
+
+            {{#if preparationMinutes}}
+            Prep Time: {{preparationMinutes}} min <br>
+            {{/if}}
+
+            {{#if readyInMinutes}}
+            Total Time: {{readyInMinutes}} min <br>
+            {{/if}}
+
+            {{#if servings}}
+            Serving Size: {{servings}} <br>
+            {{/if}}
+
+            {{#if aggregateLikes}}
+            <e>Likes: {{aggregateLikes}} </e>
+            {{/if}}
+            <span class="js-addFavorite glyphicon glyphicon-thumbs-up"></span> <br>
+          </strong>
+          Plan Your Week of Meals: <select class="js-day">
+            <option class="js-mon">Monday</option>
+            <option class="js-tues">Tuesday</option>
+            <option class="js-wed">Wednesday</option>
+            <option class="js-thur">Thursday</option>
+            <option class="js-fri">Friday</option>
+            <option class="js-sat">Saturday</option>
+            <option class="js-sun">Sunday</option>
+           </select>
+           <select class="js-time">
+             <option class="js-breakfast">Breakfast</option>
+             <option class="js-lunch">Lunch</option>
+             <option class="js-dinner">Dinner</option>
+           </select>
+           <button class="js-plan btn btn-primary">Plan!</button>
+        </center>
+      {{/each}}
+      <h3>Ingredients</h3>
+      <ol>
+        <p><span id="ingredients"></span></p>
+        {{#each ingredient}}
+        {{/each}}
+      </ol>
+      <h3>Equipment</h3>
+      <ol>
+        <p><span id="eq"></span></p>
+        {{#each equipment}}
+        {{/each}}
+      </ol>
+      <h2>Instructions</h2>
+      <ol>
+        {{#each instruction}}
+          <br><li>{{step}}</li>
+        {{/each}}
+      </ol>
+      <div id="nutritionfacts">
+        {{#each recipeInfo}}
+                <div id="nutritionfacts">
+        <table width="242" cellspacing="0" cellpadding="0">
+            <tbody><tr>
+                <td align="center" class="header">Nutrition Facts</td>
+            </tr>
+            <tr>
+                <td><div class="serving">Per <span class="highlighted">180.0g</span> Serving Size</div></td>
+            </tr>
+            <tr style="height: 7px">
+                <td bgcolor="#000000"></td>
+            </tr>
+            <tr>
+                <td style="font-size: 7pt"><div class="line">Amount Per Serving</div></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="line">
+                    <div class="label">Calories <div class="weight">230</div></div><div style="padding-top: 1px; float: right;" class="labellight">Calories from Fat <div class="weight">56</div></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="line"><div class="dvlabel">% Daily Value<sup>*</sup></div></div></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="line">
+                    <div class="label">Total Fat <div class="weight">6.2g</div></div>
+                    <div class="dv">10%</div>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td class="indent">
+                    <div class="line">
+                    <div class="labellight">Saturated Fat <div class="weight">3.5g</div></div>
+                    <div class="dv">17%</div>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td class="indent">
+                    <div class="line">
+                    <div class="labellight"><i>Trans</i> Fat <div class="weight">0.0g</div></div>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>
+                    <div class="line">
+                    <div class="label">Cholesterol <div class="weight">22mg</div></div>
+                    <div class="dv">7%</div>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>
+                    <div class="line">
+                    <div class="label">Sodium <div class="weight">618mg</div></div>
+                    <div class="dv">26%</div>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>
+                    <div class="line">
+                    <div class="label">Total Carbohydrates <div class="weight">32.2g</div></div>
+                    <div class="dv">11%</div>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td class="indent">
+                    <div class="line">
+                    <div class="labellight">Dietary Fiber <div class="weight">5.2g</div></div>
+                    <div class="dv">21%</div>
+                </div></td>
+            </tr>
+                        <tr>
+                <td class="indent">
+                    <div class="line">
+                    <div class="labellight">Sugars <div class="weight">3.3g</div></div>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>
+                    <div class="line">
+                    <div class="label">Protein <div class="weight">11.4g</div>
+                    </div>
+                </div></td>
+            </tr>
+            <tr style="height: 7px">
+                <td bgcolor="#000000"></td>
+            </tr>
+                        <tr>
+                <td>
+                    <table cellspacing="0" cellpadding="0" border="0" class="vitamins">
+                    <tbody>
+                    <tr>
+                        <td>Vitamin A &nbsp;&nbsp; 10%</td>
+                        <td align="center">•</td>
+                        <td align="right">Calcium &nbsp;&nbsp; 19%</td>
+                    </tr>
+                    <tr>
+                        <td>Vitamin B &nbsp;&nbsp; 22%</td>
+                        <td align="center">•</td>
+                        <td align="right">Iron &nbsp;&nbsp; 13%</td>
+                    </tr>
+                    <tr>
+                        <td>Vitamin C &nbsp;&nbsp; 16%</td>
+                        <td align="center">•</td>
+                        <td align="right">Potassium &nbsp;&nbsp; 7%</td>
+                    </tr>
+                    <tr>
+                        <td>Vitamin D &nbsp;&nbsp; 5%</td>
+                        <td align="center">•</td>
+                        <td align="right">Folate &nbsp;&nbsp; 40%</td>
+                    </tr>                        
+                    </tbody></table>
+                </td>
+            </tr>
+                        <tr>
+                <td><div class="line">
+                <div class="labellight">* Based on a regular <a href="#">2000 calorie diet</a>
+                <br><br><i>Nutritional details are an estimate and should only be used as a guide for approximation.</i>
+                </div>
+                </div>
+                </td>
+            </tr>
+        </tbody></table>
+        {{/each}}
+      </div>
+    </div>
+  </div>
 </template>

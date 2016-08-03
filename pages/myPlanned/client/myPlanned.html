@@ -2,20 +2,217 @@
   <top><center>My Planned Meals</center></top>
   <info><center>Plan meals ahead of time on this page so that you can organize what you need to buy and prepare ahead of time.</center></info>
   <hr>
-  <table>
-    <thead>
-      <tr>
-        <td>Sunday</td>
-        <td>Monday</td>
-        <td>Tuesday</td>
-        <td>Wednesday</td>
-        <td>Thursday</td>
-        <td>Friday</td>
-        <td>Saturday</td>
-        <td>Sunday</td>
-      </tr>
-    </thead>
-  </table>
+  <center>
+  <br><br><br><br>
+    <div class="col-md-12">
+      <table border="5">
+        <caption>Your Weekly Meals</caption>
+        <thead>
+          <tr> <th align="center" width="12.5%">Sunday</th>
+            <th align="center" width="12.5%">Monday</th>
+            <th align="center" width="12.5%">Tuesday</th>
+            <th align="center" width="12.5%">Wednesday</th>
+            <th align="center" width="12.5%">Thursday</th>
+            <th align="center" width="12.5%">Friday</th>
+            <th align="center" width="12.5%">Saturday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              {{#each sundmorn}}
+                <center><img src="{{image}}" height="100" width="100"></center>
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each mb}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each tub}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each wb}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each thb}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each fb}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each sab}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>Breakfast</td>
+          </tr>
+          <tr class="lunch"> 
+            <td>
+              {{#each sul}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each ml}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each tul}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each wl}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each thl}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each fl}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each sal}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td><strong>Lunch</strong></td>
+          </tr>
+          <tr class="dinner">
+            <td>
+              {{#each sud}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each md}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each tud}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each wd}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each thd}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each fd}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>
+              {{#each sad}}
+                <img src="{{image}}" height="100" width="100">
+                <center class="js-link">{{title}}</center>
+              {{/each}}
+            </td>
+            <td>Dinner</td>
+          </tr>
+          <tr class="nutriton">
+            <td>
+              {{#each calorietotalSu}}
+                <strong>{{c}}</strong><br>
+                <strong>{{f}}</strong><br>
+                <strong>{{car}}</strong><br>
+              {{/each}}
+            </td>
+            <td>
+              {{#each calorietotalM}}
+                <strong>{{c}}</strong><br>
+                <strong>{{f}}</strong><br>
+                <strong>{{car}}</strong><br>
+              {{/each}}
+            </td>
+            <td>
+              {{#each calorietotalTu}}
+                <strong>{{c}}</strong><br>
+                <strong>{{f}}</strong><br>
+                <strong>{{car}}</strong><br>
+              {{/each}}
+            </td>
+            <td>
+              {{#each calorietotalW}}
+                <strong>{{c}}</strong><br>
+                <strong>{{f}}</strong><br>
+                <strong>{{car}}</strong><br>
+              {{/each}}
+            </td>
+            <td>
+              {{#each calorietotalTh}}
+                <strong>{{c}}</strong><br>
+                <strong>{{f}}</strong><br>
+                <strong>{{car}}</strong><br>
+              {{/each}}
+            </td>
+            <td>
+              {{#each calorietotalF}}
+                <strong>{{c}}</strong><br>
+                <strong>{{f}}</strong><br>
+                <strong>{{car}}</strong><br>
+              {{/each}}
+            </td>
+            <td>
+              {{#each calorietotalSa}}
+                <strong>{{c}}</strong><br>
+                <strong>{{f}}</strong><br>
+                <strong>{{car}}</strong><br>
+              {{/each}}
+            </td>
+            <td>
+              Total Cal
+              Total Fat
+              Total Carbs
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </center>
 </template>
 
 

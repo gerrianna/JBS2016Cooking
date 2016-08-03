@@ -26,14 +26,11 @@ Meteor.publish("theIns",function(){
 Meteor.publish("theHealth", function(){
 	return Health.find();
 })
-Meteor.publish("Today", function(){
-	return Today.find();
-})
 
 Meteor.publish("Weekly",function(){
 	return Weekly.find();
 })
 
-Meteor.publish("Monthly", function(){
-	return Monthly.find();
+Meteor.publish("Total", function(){
+	return Total.find();
 })
