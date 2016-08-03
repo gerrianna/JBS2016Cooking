@@ -166,4 +166,24 @@ Meteor.apply("getMeal",[updatedSearch],{returnStubValue: true},
     }
   );
   },
+  "click .js-addFavorite": function(event){
+    /*console.log("adding to favorites list: ");
+    console.log(this);
+    console.log(this.recipe);
+    console.log(this.recipe.title);
+    console.log(this.recipe.image);
+    */
+  //  const recipe = this.recipe._id;
+  console.log(this);
+  const favorite = this.appetizers;
+  const title = favorite.title;
+  console.log("favorite: "+favorite);
+    var favorite_obj={
+      title:favorite.title,
+      id:favorite.id,
+      image:favorite.image,
+      user:Meteor.userId()
+    };
+    Meteor.call("addFavorite",favorite_obj);
+  },
 })
