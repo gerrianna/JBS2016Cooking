@@ -50,6 +50,10 @@ Template.sideDish.helpers({
 })
 
 Template.sideDish.events({
+  "click .js-newsearch": function(events){
+   Meteor.call("removeRec");
+   Router.go('/');
+ },
   "click .js-reclink":function(events){
     //events.preventDefaults();
     console.log("hi");
