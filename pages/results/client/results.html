@@ -37,8 +37,8 @@
 							<img src="https://spoonacular.com/recipeImages/{{r.image}}" width="100" height = "100">
 						{{/if}}
 						<a href="{{r.href}}" class="js-reclink"><name>{{r.title}}</name></a>
-						<br>
-		   			<e>Likes: {{r.likes}}</e>
+
+
 						<!--<a href="#">--> 
 						{{> interactRow  recipe=r}}
 					{{/with}}
@@ -72,6 +72,7 @@
 </template>
 
 <template name="interactRow">
+<!--	<e>Likes: {{likes}}</e>-->
 	<!--	 <button  class="glyphicon glyphicon-thumbs-up"></button>-->
 	<span class="js-addFavorite glyphicon glyphicon-star-empty custom"></span>
 		<!-- <button class ="js-addFavorite glyphicon glyphicon-star-empty custom"></button>-->

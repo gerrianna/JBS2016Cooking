@@ -12,7 +12,7 @@
 				{{#each recipeInfo}}
 					<img src="{{image}}" width="200" height="150">
 				{{/each}}
-				
+
 			</center>
 			{{#each recipeInfo}}
 				<center>
@@ -22,6 +22,8 @@
 						Prep Time: {{preparationMinutes}} min <br>
 						Total Time: {{readyInMinutes}} min <br>
 						Serving Size: {{servings}} <br>
+						<e>Likes: {{aggregateLikes}} </e>
+						<span class="js-addFavorite glyphicon glyphicon-thumbs-up"></span> <br>
 					</strong>
 				</center>
 

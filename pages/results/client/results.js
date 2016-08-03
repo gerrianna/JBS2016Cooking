@@ -29,6 +29,24 @@ Template.results.helpers({
 
 });
 
+/*Template.interactRow.helpers({
+  likes: function(){
+    console.log(this.recipe);
+    var recId = this.recipe.id;
+    console.log ("recId : "+recId);
+    Meteor.call("getRecipeIngredients", [recId],
+      function(error, result){
+        a = JSON.parse(result);
+        console.log("a");
+        console.log(a);
+        var likes = a.aggregateLikes;
+        console.log("likes: "+likes);
+        return likes;
+      }
+    );
+  },
+})*/
+
 Template.results.events({
   "click .js-talk": function(event){
     Meteor.call('pierreSpeak');
