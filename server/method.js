@@ -290,7 +290,7 @@ Meteor.methods({
   "removeWeekly":function(){
     Weekly.remove({});
   },
-  "insertTotal":function(weekday){
+  "insertTotalM":function(weekday){
     Total.remove({});
     console.log(weekday);
     var a = Weekly.find({day:weekday},{fields:{cal:1}}).fetch();
@@ -312,6 +312,7 @@ Meteor.methods({
     const num = {c:cal, f:fats, car:carbs, day:weekday}
     Total.remove({c:0});
     Total.insert(num);
-  }
+  },
+  
 
 })
