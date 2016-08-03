@@ -56,7 +56,7 @@ Template.home.events({
     //const number = Session.get("number");
     //Meteor.call("test1",function(e,r){console.log(r)});
     // Meteor.call("getRecipe",[text]);
-    Meteor.apply("getRecipe",[search],{returnStubValue: true},
+    Meteor.apply("advancedGet",[search],{returnStubValue: true},
         function(error,result){
           if(error) {
             console.dir(error);
