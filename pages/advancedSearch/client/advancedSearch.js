@@ -148,4 +148,5 @@ Template.advancedSearch.events({
     Meteor.call('pierreSpeak');
   },
 
+
 });

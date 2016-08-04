@@ -190,4 +190,7 @@ Meteor.apply("getMeal",[updatedSearch],{returnStubValue: true},
     };
     Meteor.call("addFavorite",favorite_obj);
   },
+  "click .js-talk": function(event,instance){
+    Meteor.call('pierreSpeak');
+  },
 })
