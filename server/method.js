@@ -290,12 +290,35 @@ Meteor.methods({
   "removeWeekly":function(){
     Weekly.remove({});
   },
-  "insertTotalM":function(weekday){
-    Total.remove({});
-    console.log(weekday);
-    var a = Weekly.find({day:weekday},{fields:{cal:1}}).fetch();
-    var b = Weekly.find({day:weekday},{fields:{fat:1}}).fetch();
-    var c = Weekly.find({day:weekday},{fields:{carbs:1}}).fetch();
+  "insertTotalM":function(){
+    Mon.remove({});
+    
+    var a = Weekly.find({day:"Monday"},{fields:{cal:1}}).fetch();
+    var b = Weekly.find({day:"Monday"},{fields:{fat:1}}).fetch();
+    var c = Weekly.find({day:"Monday"},{fields:{carbs:1}}).fetch();
+    var cal = 0;
+    var carbs = 0;
+    var fats = 0;
+    for(var i=0; i<a.length; i++){
+      cal = cal + a[i].cal; 
+    }
+    for(var i=0; i<a.length; i++){
+      fats = fats + b[i].fat; 
+    }
+    for(var i=0; i<a.length; i++){
+      carbs = carbs + c[i].carbs; 
+    }
+    fa = fats.toFixed(2);
+    const num = {c:cal, f:fa, car:carbs}
+    Mon.remove({c:0});
+    Mon.insert(num);
+  },
+  "insertTotalTu":function(){
+    Tues.remove({});
+    
+    var a = Weekly.find({day:"Tuesday"},{fields:{cal:1}}).fetch();
+    var b = Weekly.find({day:"Tuesday"},{fields:{fat:1}}).fetch();
+    var c = Weekly.find({day:"Tuesday"},{fields:{carbs:1}}).fetch();
     var cal = 0;
     var carbs = 0;
     var fats = 0;
@@ -309,10 +332,125 @@ Meteor.methods({
       carbs = carbs + c[i].carbs; 
     }
 
-    const num = {c:cal, f:fats, car:carbs, day:weekday}
-    Total.remove({c:0});
-    Total.insert(num);
+    const num = {c:cal, f:fats, car:carbs}
+    Tues.remove({c:0});
+    Tues.insert(num);
   },
-  
+  "insertTotalW":function(){
+    Wed.remove({});
+    
+    var a = Weekly.find({day:"Wednesday"},{fields:{cal:1}}).fetch();
+    var b = Weekly.find({day:"Wednesday"},{fields:{fat:1}}).fetch();
+    var c = Weekly.find({day:"Wednesday"},{fields:{carbs:1}}).fetch();
+    var cal = 0;
+    var carbs = 0;
+    var fats = 0;
+    for(var i=0; i<a.length; i++){
+      cal = cal + a[i].cal; 
+    }
+    for(var i=0; i<a.length; i++){
+      fats = fats + b[i].fat; 
+    }
+    for(var i=0; i<a.length; i++){
+      carbs = carbs + c[i].carbs; 
+    }
+
+    const num = {c:cal, f:fats, car:carbs}
+    Wed.remove({c:0});
+    Wed.insert(num);
+  },
+  "insertTotalTh":function(){
+    Thur.remove({});
+    var a = Weekly.find({day:"Thursday"},{fields:{cal:1}}).fetch();
+    var b = Weekly.find({day:"Thursday"},{fields:{fat:1}}).fetch();
+    var c = Weekly.find({day:"Thursday"},{fields:{carbs:1}}).fetch();
+    var cal = 0;
+    var carbs = 0;
+    var fats = 0;
+    for(var i=0; i<a.length; i++){
+      cal = cal + a[i].cal; 
+    }
+    for(var i=0; i<a.length; i++){
+      fats = fats + b[i].fat; 
+    }
+    for(var i=0; i<a.length; i++){
+      carbs = carbs + c[i].carbs; 
+    }
+
+    const num = {c:cal, f:fats, car:carbs}
+    Thur.remove({c:0});
+    Thur.insert(num);
+  },
+  "insertTotalF":function(){
+    Fri.remove({});
+    var a = Weekly.find({day:"Friday"},{fields:{cal:1}}).fetch();
+    var b = Weekly.find({day:"Friday"},{fields:{fat:1}}).fetch();
+    var c = Weekly.find({day:"Friday"},{fields:{carbs:1}}).fetch();
+    var cal = 0;
+    var carbs = 0;
+    var fats = 0;
+    for(var i=0; i<a.length; i++){
+      cal = cal + a[i].cal; 
+    }
+    for(var i=0; i<a.length; i++){
+      fats = fats + b[i].fat; 
+    }
+    for(var i=0; i<a.length; i++){
+      carbs = carbs + c[i].carbs; 
+    }
+
+    const num = {c:cal, f:fats, car:carbs}
+    Fri.remove({c:0});
+    Fri.insert(num);
+  },
+  "insertTotalSa":function(){
+    Sat.remove({});
+    var a = Weekly.find({day:"Saturday"},{fields:{cal:1}}).fetch();
+    var b = Weekly.find({day:"Saturday"},{fields:{fat:1}}).fetch();
+    var c = Weekly.find({day:"Saturday"},{fields:{carbs:1}}).fetch();
+    var cal = 0;
+    var carbs = 0;
+    var fats = 0;
+    for(var i=0; i<a.length; i++){
+      cal = cal + a[i].cal; 
+    }
+    for(var i=0; i<a.length; i++){
+      fats = fats + b[i].fat; 
+    }
+    for(var i=0; i<a.length; i++){
+      carbs = carbs + c[i].carbs; 
+    }
+
+    const num = {c:cal, f:fats, car:carbs}
+    Sat.remove({c:0});
+    Sat.insert(num);
+  },
+  "insertTotalSu":function(){
+    Sun.remove({});
+    var a = Weekly.find({day:"Sunday"},{fields:{cal:1}}).fetch();
+    var b = Weekly.find({day:"Sunday"},{fields:{fat:1}}).fetch();
+    var c = Weekly.find({day:"Sunday"},{fields:{carbs:1}}).fetch();
+    var cal = 0;
+    var carbs = 0;
+    var fats = 0;
+    for(var i=0; i<a.length; i++){
+      cal = cal + a[i].cal; 
+
+    }
+    for(var i=0; i<a.length; i++){
+      fats = fats + b[i].fat; 
+    }
+    for(var i=0; i<a.length; i++){
+      carbs = carbs + c[i].carbs; 
+    }
+
+    const num = {c:cal, f:fats, car:carbs}
+    Sun.remove({c:0});
+    Sun.insert(num);
+  },
+  "updateWeekly":function(day, time, id, image, title, calories, fat, carbs){
+    Weekly.update({day:day, time:time}, {$set: {title:title, image:image, cal:calories, fat:fat, carbs:carbs}});
+    console.log("checked")
+  }
 
 })

@@ -26,11 +26,29 @@ Meteor.publish("theIns",function(){
 Meteor.publish("theHealth", function(){
 	return Health.find();
 })
-
-Meteor.publish("Weekly",function(){
+Meteor.publish("Weekly", function(){
 	return Weekly.find();
 })
 
-Meteor.publish("Total", function(){
-	return Total.find();
+Meteor.publish("Mon",function(){
+	return Mon.find();
 })
+Meteor.publish("Tues",function(){
+	return Tues.find();
+})
+Meteor.publish("Wed",function(){
+	return Wed.find();
+})
+Meteor.publish("Thur",function(){
+	return Thur.find();
+})
+Meteor.publish("Fri",function(){
+	return Fri.find();
+})
+Meteor.publish("Sat",function(){
+	return Sat.find();
+})
+Meteor.publish("Sun",function(){
+	return Sun.find();
+})
+

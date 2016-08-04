@@ -70,6 +70,7 @@ Template.instructions.helpers({
   recipeInfo : function(){
     return Health.find({});
   },
+  
 });
 Template.instructions.events({
   "click .js-talk": function(event,instance){
@@ -88,6 +89,14 @@ Template.instructions.events({
     
     const planobj = {day:day, time:time, id:id, image:image, title:title, cal:calories, fat:fat, carbs:carbs}
     //Meteor.call("removeWeekly");
-    Meteor.call("insertWeekly", planobj);
+    var w = Weekly.findOne({day:day,time:time});
+    if(w){
+      Meteor.call("updateWeekly", day, time, id, image, title, calories, fat, carbs)
+    } else {
+      Meteor.call("insertWeekly", planobj);
+    }
+    
+   
+    
   }
 })

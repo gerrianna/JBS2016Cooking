@@ -62,41 +62,34 @@ Template.myPlanned.helpers({
 	"sad":function(){
 		return Weekly.find({day:'Saturday',time:"Dinner"});
 	},
-	/*"calorietotalM":function(){
-		const weekday = "Monday"
-		Meteor.call("insertTotal", weekday);
-		return Total.find({day:weekday});
+	"calorietotalM":function(){
+		Meteor.call("insertTotalM");
+		return Mon.find();
 	},
 	"calorietotalTu":function(){
-		const weekday = "Tuesday"
-		Meteor.call("insertTotal", weekday);
-		return Total.find({day:weekday});
-	},*/
-	"calorietotalW":function(){
-		const weekday = "Wednesday"
-		Meteor.call("insertTotal", weekday);
-		return Total.find({day:weekday});
+		Meteor.call("insertTotalTu");
+		return Tues.find({});
 	},
-	/*"calorietotalTh":function(){
-		const weekday = "Thursday"
-		Meteor.call("insertTotal", weekday);
-		return Total.find({day:weekday});
+	"calorietotalW":function(){
+		Meteor.call("insertTotalW");
+		return Wed.find({});
+	},
+	"calorietotalTh":function(){
+		Meteor.call("insertTotalTh");
+		return Thur.find({});
 	},
 	"calorietotalF":function(){
-		const weekday = "Friday"
-		Meteor.call("insertTotal", weekday);
-		return Total.find({day:weekday});
+		Meteor.call("insertTotalF");
+		return Fri.find({});
 	},
 	"calorietotalSa":function(){
-		const weekday = "Saturday"
-		Meteor.call("insertTotal", weekday);
-		return Total.find({day:weekday});
+		Meteor.call("insertTotalSa");
+		return Sat.find({});
 	},
 	"calorietotalSu":function(){
-		const weekday = "Sunday"
-		Meteor.call("insertTotal", weekday);
-		return Total.find({day:weekday});
-	}*/
+		Meteor.call("insertTotalSu");
+		return Sun.find({});
+	}
 });
 Template.myPlanned.events({
 	"click .js-link":function(events){
